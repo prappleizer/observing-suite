@@ -1,4 +1,5 @@
 
+from ast import Continue
 from astropy.io import fits
 import numpy as np 
 import matplotlib.pyplot as plt
@@ -83,6 +84,11 @@ class Target():
     self.configs: dict
       dictionary of all configuration specifications.
     '''
+    if config_name in self.configs.keys():
+        cont = input(f'Config Name {config_name} already a configuration. Overwrite? [Enter yes, N for no]: ')
+        if  cont.upper() == 'N':
+            return 
+            
     self.configs[config_name] = {}
     self.configs[config_name]['obstype']= obstype
     if coordinates is not None:
