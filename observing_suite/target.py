@@ -190,7 +190,7 @@ class Target():
         self.configs[i]['offset star'] = coord
         self.configs[i]['offsets'] = add_str
         
-  def retrieve_finder_chart(self,config_name,size=None,pixels=500,show_aperture=True,**implot_kwargs):
+  def retrieve_finder_chart(self,config_name,size,pixels=500,show_aperture=True,**implot_kwargs):
     '''
     Retrieve a DSS image (finder chart) around the target. If obsmode is spectroscopy, optionally show the location of the slit or circular fiber on the image.
     
