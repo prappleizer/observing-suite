@@ -574,4 +574,8 @@ plan.html_summary('2022-02-25',save_dir='./');
 
 Which will create a folder for that date, and within make the html (and an `img` folder for the plots). 
 
-You can see an example of this in the `Examples/` folder. 
+You can see an example of this in the `Examples/` folder. The HTML has a few nice features (so far) other than collating the information, charts, etc., for targets in a given night. For example, if you click on a target's coordinates button, you'll be taken (in a new tab) to the LegacyViewer interactive viewer centered on those coordinates. Clicking on any individual finder images will open a new tab with a more zoomed in version for inspection. 
+
+I hope to add more to this in the future, like making a live updating app/page which shows the current time on the visibility plot, allows you to order objects by minimum airmass, RA, or personal choice, and interact with plots all live. It'd be nice to let finder images be downloaded as FITS for easy opening in DS9, etc. (That's easy, will do that very soon).
+
+If you've made it this far, please feel free to contact me or leave an issue on this repo with ideas for things that would be useful to you as an observer. This tool is build upon the amazing core features in `astropy`, `astroquery`, etc. It's mostly about collating these, organizing them, and allowing for a lot of control. My goal is to make something useful to *me* at the telescope (or leading up to runs), that is flexible, but doesn't have a ton of overhead. I am happy to take suggestions, pull requests, etc., to add convenience methods and special treats if certain inputs are provided.
