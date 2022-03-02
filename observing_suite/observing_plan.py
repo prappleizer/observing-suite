@@ -160,46 +160,74 @@ class ObservingPlan():
     if not os.path.exists(os.path.join(save_dir,f'ObservingPlan_{date}','img',f'visibility_{date}.png')):
       fig, ax = self.plot_visibility(date)
       fig.savefig(save_airmass)
+    for target in self.target_list:
+      if not os.path.exists(os.path.join(save_dir,f'ObservingPlan_{date}','img',f'visibility_{target.name}_{date}.png')):
+        fig,ax = self.plot_visibility(date,target=target.name)
+        fig.savefig(os.path.join(save_dir,f'ObservingPlan_{date}','img',f'visibility_{target.name}_{date}.png'))
     
     top = f'''
     <html>
         <head>
             <title>{title}</title>
-           
+               <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
         </head>
         <body>
            <div align='center'>
-            <h1>{title}</h1>
-            <p></p>
-            
-            <h2>Visibility (all targets)</h2>
-            <img src={str(save_airmass)} width="1500"> 
+           <h1 class="display-2">Observing Plan for UTC {date}</h1>
+           <hr>
+           <p></p>
+           </div>
+           <div class='container'>
+          
+            <h4 class='display-4'>Visibility (all targets)</h4>
+          </div>
+          <div align='center'>
+            <img src={str(save_airmass)} width="1300"> 
             </div>
+           
+            
+            
     '''
-    for target in self.target_list:
+    for target in self.target_list:     
       text = f'''
+             <div class='container'>
+             <hr>
+             <hr>
+             <h3 class='display-4'>Target: {target.name}</h3>
              <p></p>
-             <div align='center'>
-             <hr>
-             <hr>
-             <h1>Target: {target.name}</h1>
-             <h4>Coordinates: {target.coordinates.to_string()}</h4>
-             <h3>Configurations</h3>
-             {target.configurations.to_html()}
-             </div>
-             <div align='center'>
+             <a href="https://www.legacysurvey.org/viewer?ra={target.coordinates.to_string().split(' ')[0]}&dec={target.coordinates.to_string().split(' ')[1]}&layer=ls-dr9&zoom=12" target="_blank"><button type="button" class="btn btn-outline-primary btn-lg">Coordinates: {target.coordinates.to_string()}</button></a>
+             <p></p>
+             
+             <img src={os.path.join('img',f'visibility_{target.name}_{date}.png')} class="img-fluid" width="1300"> 
+             
+             <h3>Observing Configurations</h3>
+             <p></p>
+             {target.configurations.to_html(classes=["table table-striped",'table table-hover'])}
+             
+             <h4>Finder Charts</h4>
+             <div class="row">
              '''
       for key in target.configs.keys():
         if not os.path.exists(os.path.join(save_dir,f'ObservingPlan_{date}','img',f'{target.name}_config_{key}_{date}.png')):
           fig,ax=target.retrieve_finder_chart(key,size=10*u.arcmin)
+          plt.tight_layout()
           fig.savefig(os.path.join(save_dir,f'ObservingPlan_{date}','img',f'{target.name}_config_{key}_{date}.png'))
+        img_path = os.path.join('img',f'{target.name}_config_{key}_{date}.png')
         ims = f'''
-              <img src={os.path.join('img',f'{target.name}_config_{key}_{date}.png')} width='500'>
+              <div class="col-lg-4 col-md-4 col-xs-4 thumb">
+              <figure class="text-center">
+              <a href="{img_path}" target="_blank"><img src="{img_path}" class="figure-img img-fluid rounded" alt="..." width='550'></a>
+              <figcaption class="figure-caption">Finder Chart for Configuration: {key}.</figcaption>
+              </figure>
+              </div> 
         '''
-        text = text+ims
+      
+        text = text+ims 
+      text = text+'</div>'
       top = top + text
     close = f'''
-    </div>
+
     </body>
     </html>
     '''
