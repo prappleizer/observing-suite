@@ -9,6 +9,7 @@ from astropy.coordinates import SkyCoord
 import pandas as pd
 from photutils.aperture import SkyRectangularAperture, SkyCircularAperture
 from .imaging import implot 
+from astroquery.skyview import SkyView
 
 __all__ = ['Target']
 
