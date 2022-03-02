@@ -6,6 +6,8 @@ This package is built around three core classes: `Target()`, where one specifies
 
 Numerous convenience functions exist at each stage: my goal is to make it as easy as possible for me (and others) to set up complex observing runs yet keep track of everything. Some elements of this package are made better with instrument specific and observatory specific information. For now, Keck Observatory and Palomar Observatory are the two "most supported". I'll happily add more if people are interested and can provide, e.g., the template for that observatory's targetlist.
 
+**Note that this package is currently in EARLY AND ACTIVE development**. 
+
 ## Dependencies
 Use of the observing-suite relies on the following
 
@@ -459,7 +461,6 @@ m82.retrieve_finder_chart(config_name='primary',
                          show_aperture=False);
 ```
 
-    WARNING: AstropyDeprecationWarning: The truth value of a Quantity is ambiguous. In the future this will raise a ValueError. [astropy.units.quantity]
 
 
 
@@ -473,8 +474,6 @@ In relieving news, M82 appears! Notice I set a specific keyword to *not* show ap
 m82.retrieve_finder_chart(config_name='primary',
                          size=10*u.arcmin);
 ```
-
-    WARNING: AstropyDeprecationWarning: The truth value of a Quantity is ambiguous. In the future this will raise a ValueError. [astropy.units.quantity]
 
 
 
@@ -491,7 +490,6 @@ m82.retrieve_finder_chart(config_name='tertiary',
                          size=10*u.arcmin);
 ```
 
-    WARNING: AstropyDeprecationWarning: The truth value of a Quantity is ambiguous. In the future this will raise a ValueError. [astropy.units.quantity]
 
 
 
