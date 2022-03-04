@@ -1,0 +1,31 @@
+
+body{
+background: #ffffff;
+}
+
+.myheader {
+  padding: 80px;
+  text-align: center;
+  background: #0a2648;
+  color: white;
+  font-size: 30px;
+}
+
+.box {
+  padding: 60px;
+  text-align: center;
+}
+
+.visibility {
+  padding-top: 150 px; 
+  text-align: center;
+}
+
+
+.myfooter {
+  padding: 10px;
+  text-align: center;
+  background: #0a2648;
+  color: white;
+  font-size: 15px;
+}
