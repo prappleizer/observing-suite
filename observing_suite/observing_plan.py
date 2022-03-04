@@ -150,7 +150,7 @@ class ObservingPlan():
       ax.tick_params(which='minor',direction='in',length=6,width=2,color='gray',top=True)
       return fig, ax 
   
-  def html_summary(self,date,save_dir,overwrite=True):
+  def html_summary(self,date,save_dir,overwrite=True,view_range=12):
     '''
     Produce a 'beautiful' html output with the observing plan. 
     
@@ -171,11 +171,11 @@ class ObservingPlan():
     save_airmass = os.path.join(f'ObservingPlan_{date}','img',f'visibility_{date}.jpg')
     title = f'Observing Plan for UTC {date}'
     if overwrite:
-      fig, ax = self.plot_visibility(date)
+      fig, ax = self.plot_visibility(date,view_range=view_range)
       fig.savefig(save_airmass)
     for target in self.target_list:
       if overwrite:
-        fig,ax = self.plot_visibility(date,target=target.name)
+        fig,ax = self.plot_visibility(date,target=target.name,view_range=view_range)
         fig.savefig(os.path.join(save_dir,f'ObservingPlan_{date}','img',f'visibility_{target.name}_{date}.jpg'))
     
     top = f'''
