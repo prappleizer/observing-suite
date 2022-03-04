@@ -495,6 +495,7 @@ m82.retrieve_finder_chart(config_name='tertiary',
 
 ![png](Examples/md/img/output_32_1.png)
 
+Later on, we're going to automatically export an html page with an observing plan. It will attempt to figure out a size to use for this when it comes to finder charts -- e.g., if a slit width is provided using `slit_width`, it will be 1.5 times that length in dimension. If you wish to set this size for a given configuration, simply add the `finder_size` parameter to your configuration. It won't show up in the configuration table, but will set the the size of the finder. In the same way, you can set the special parameter `image_scaling`. This sets the scale of the image as defined by the `implot()` function (namely, the image is scaled to the bounds [ mu-(scale x std), mu+(scale x std) ]. This parameter can quickly help bring over or under saturated finder images into better form.
 
 ### Adding Custom Imaging 
 

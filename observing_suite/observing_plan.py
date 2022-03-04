@@ -33,6 +33,7 @@ class ObservingPlan():
       the offset from utc in which the observations are taking place (e.g., US/Pacific is -8). 
     '''
     self.target_list = target_list
+    self.observatory = observatory
     if isinstance(observatory,str):
       try:
         self.obsloc = EarthLocation.of_site(observatory)
@@ -54,7 +55,9 @@ class ObservingPlan():
         self.obs_info[date]['midnight'] = midnight 
     else:
       raise AssertionError('obsdates must be str or list')
-   
+    self.total_configs = 0
+    for i in target_list:
+      self.total_configs += len(i.configurations)
 
   
   def plot_visibility(self,date,target='all',view_range=12,plot_current_time=False,figsize=(30,12),alt_min=10,alt_max=90):
@@ -147,78 +150,122 @@ class ObservingPlan():
       ax.tick_params(which='minor',direction='in',length=6,width=2,color='gray',top=True)
       return fig, ax 
   
-  def html_summary(self,date,save_dir):
+  def html_summary(self,date,save_dir,overwrite=True):
     '''
     Produce a 'beautiful' html output with the observing plan. 
+    
+    Parameters
+    ----------
+    date: str
+      date for which to construct the report. Must be a date present in the obsdates provided.
+    save_dir: str
+      location to save the observing plan. Spawns an image directory for relevant plots. 
+    overwrite: bool, optional (default True)
+      When set to true, constituant elements (like finder charts, airmass plots, etc) will be re-computed and saved to disk. 
     '''
+    
     if not os.path.exists(os.path.join(save_dir,f'ObservingPlan_{date}')):
       os.mkdir(os.path.join(save_dir,f'ObservingPlan_{date}'))
     if not os.path.exists(os.path.join(save_dir,f'ObservingPlan_{date}','img')):
       os.mkdir(os.path.join(save_dir,f'ObservingPlan_{date}','img'))                  
-    save_airmass = os.path.join('img',f'visibility_{date}.png')
+    save_airmass = os.path.join(f'ObservingPlan_{date}','img',f'visibility_{date}.jpg')
     title = f'Observing Plan for UTC {date}'
-    if not os.path.exists(os.path.join(save_dir,f'ObservingPlan_{date}','img',f'visibility_{date}.png')):
+    if overwrite:
       fig, ax = self.plot_visibility(date)
       fig.savefig(save_airmass)
     for target in self.target_list:
-      if not os.path.exists(os.path.join(save_dir,f'ObservingPlan_{date}','img',f'visibility_{target.name}_{date}.png')):
+      if overwrite:
         fig,ax = self.plot_visibility(date,target=target.name)
-        fig.savefig(os.path.join(save_dir,f'ObservingPlan_{date}','img',f'visibility_{target.name}_{date}.png'))
+        fig.savefig(os.path.join(save_dir,f'ObservingPlan_{date}','img',f'visibility_{target.name}_{date}.jpg'))
     
     top = f'''
     <html>
         <head>
             <title>{title}</title>
                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-        </head>
+         <link rel="stylesheet" href="style.css">
+         <meta name="viewport" content="width=device-width, initial-scale=1">
+         </head>
         <body>
-           <div align='center'>
-           <h1 class="display-2">Observing Plan for UTC {date}</h1>
-           <hr>
-           <p></p>
+           <div class='myheader'>
+           <h2 class="display-3">Observing Plan for UTC {date}</h2>
+           <p>{self.observatory} Observatory</p>
+           <h4>Displaying {len(self.target_list)} Targets and {self.total_configs} Unique Configurations</h4>
            </div>
-           <div class='container'>
-          
+           
+             <div class='visibility'>
             <h4 class='display-4'>Visibility (all targets)</h4>
-          </div>
+            </div>
+       
           <div align='center'>
-            <img src={str(save_airmass)} width="1300"> 
+            <img src={os.path.join('img',f'visibility_{date}.jpg')} width="1300"> 
             </div>
            
             
             
     '''
     for target in self.target_list:     
+      # Let's make the coordinates row specific links.
+      df = target.configurations
+      df['coordinates'] = [f"<a href='https://www.legacysurvey.org/viewer?ra={i.split(' ')[0]}&dec={i.split(' ')[1]}&layer=ls-dr9&zoom=12' target='_blank'>{i}</a>" for i in df.coordinates]
+      
       text = f'''
              <div class='container'>
              <hr>
              <hr>
+             <div align='center'>
              <h3 class='display-4'>Target: {target.name}</h3>
+             
              <p></p>
              <a href="https://www.legacysurvey.org/viewer?ra={target.coordinates.to_string().split(' ')[0]}&dec={target.coordinates.to_string().split(' ')[1]}&layer=ls-dr9&zoom=12" target="_blank"><button type="button" class="btn btn-outline-primary btn-lg">Coordinates: {target.coordinates.to_string()}</button></a>
              <p></p>
-             
-             <img src={os.path.join('img',f'visibility_{target.name}_{date}.png')} class="img-fluid" width="1300"> 
-             
-             <h3>Observing Configurations</h3>
+             </div>
+             <img src={os.path.join('img',f'visibility_{target.name}_{date}.jpg')} class="img-fluid" width="1300"> 
+             <div class='box'>
+             <button class='btn btn-outline-secondary btn-lg'><h1>Observing Configurations</h1></button>
              <p></p>
-             {target.configurations.to_html(classes=["table table-striped",'table table-hover'])}
+             <p class="lead">
+  Configurations for {target.name} are shown below. Coordinate links lead to Legacy Survey Viewer centered at coordinates.
+</p>
+             </div>
              
-             <h4>Finder Charts</h4>
+             
+
+             {df.to_html(escape=False,classes=["table table-striped",'table table-hover'])}
+             <div class='box'>             
+             <button class='btn btn-outline-success btn-lg'><h1>Finder Charts</h1></button>
+             <p></p>
+             <p class="lead">
+  Click on the images below to open a new tab with a larger finder image. 
+</p>
+</div>
              <div class="row">
              '''
+      # Determine size to use for cutouts. 
+      if 'finder_size' in list(target.configs.keys()):
+        size = target.configs['finder_size']
+      elif 'slit_length' in list(target.configs.keys()):
+        size = 1.5*target.configs['slit_length']
+      else:
+        size = 200*u.arcsec
+      
       for key in target.configs.keys():
-        if not os.path.exists(os.path.join(save_dir,f'ObservingPlan_{date}','img',f'{target.name}_config_{key}_{date}.png')):
-          fig,ax=target.retrieve_finder_chart(key,size=10*u.arcmin)
-          plt.tight_layout()
-          fig.savefig(os.path.join(save_dir,f'ObservingPlan_{date}','img',f'{target.name}_config_{key}_{date}.png'))
-        img_path = os.path.join('img',f'{target.name}_config_{key}_{date}.png')
+        if overwrite:
+          if 'image_scaling' in list(target.configs.keys()):
+            scale = target.configs['image_scaling']
+            fig,ax=target.retrieve_finder_chart(key,size=size,scale=scale)
+            plt.tight_layout()
+            fig.savefig(os.path.join(save_dir,f'ObservingPlan_{date}','img',f'{target.name}_config_{key}_{date}.jpg'))
+          else:
+            fig,ax=target.retrieve_finder_chart(key,size=size)
+            plt.tight_layout()
+            fig.savefig(os.path.join(save_dir,f'ObservingPlan_{date}','img',f'{target.name}_config_{key}_{date}.jpg'))
+        img_path = os.path.join('img',f'{target.name}_config_{key}_{date}.jpg')
         ims = f'''
               <div class="col-lg-4 col-md-4 col-xs-4 thumb">
               <figure class="text-center">
               <a href="{img_path}" target="_blank"><img src="{img_path}" class="figure-img img-fluid rounded" alt="..." width='550'></a>
-              <figcaption class="figure-caption">Finder Chart for Configuration: {key}.</figcaption>
+              <figcaption class="figure-caption">Finder Chart for Configuration: {key}</figcaption>
               </figure>
               </div> 
         '''
@@ -227,9 +274,14 @@ class ObservingPlan():
       text = text+'</div>'
       top = top + text
     close = f'''
-
+    </div>
+    </div>
+    <div class='myfooter'>
+    <p>Generated by observing-suite Software. Copyright Imad Pasha 2022</p>
+    </div>
     </body>
     </html>
     '''
+    final = top + close
     with open(os.path.join(save_dir,f'ObservingPlan_{date}','html_report.html'), 'w') as f:
-      f.write(top)
+      f.write(final)
