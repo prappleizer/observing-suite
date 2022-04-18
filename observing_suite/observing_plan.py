@@ -79,7 +79,7 @@ class ObservingPlan():
       '''
       
       midnight = self.obs_info[date]['midnight']
-      delta_midnight = np.linspace(-view_range, view_range, 1000)*u.hour
+      delta_midnight = np.linspace(-view_range, view_range, 400)*u.hour
       obs_times = midnight+delta_midnight
       frame = AltAz(obstime=obs_times,location=self.obsloc)
       fig, ax = plt.subplots(figsize=figsize)
@@ -173,11 +173,12 @@ class ObservingPlan():
     if overwrite:
       fig, ax = self.plot_visibility(date,view_range=view_range)
       fig.savefig(save_airmass)
+      plt.close('all')
     for target in self.target_list:
       if overwrite:
         fig,ax = self.plot_visibility(date,target=target.name,view_range=view_range)
         fig.savefig(os.path.join(save_dir,f'ObservingPlan_{date}','img',f'visibility_{target.name}_{date}.jpg'))
-    
+        plt.close('all')
     top = f'''
     <html>
         <head>

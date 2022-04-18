@@ -190,6 +190,9 @@ class Target():
         self.configs[i]['offset star'] = coord
         self.configs[i]['offsets'] = add_str
         
+  def set_survey(self,survey_name):
+    self.survey_name = survey_name
+  
   def retrieve_finder_chart(self,config_name,size,pixels=500,show_aperture=True,**implot_kwargs):
     '''
     Retrieve a DSS image (finder chart) around the target. If obsmode is spectroscopy, optionally show the location of the slit or circular fiber on the image.
@@ -215,8 +218,12 @@ class Target():
       the fig and ax on which the dss image and possible aperture was plotted.
     '''
     sv = SkyView()
+    if hasattr(self,'survey_name'):
+      survey=self.survey_name
+    else:
+      survey='SDSSdr7g'
     paths = sv.get_images(position=self.configs[config_name]['coordinates'],
-                      survey=['DSS'],
+                      survey=[survey],
                       coordinates='J2000',
                       width=size,
                       height=size,
@@ -294,6 +301,25 @@ class Target():
     df = df.replace({np.nan: '---'})
     return df
   
+  def nudge_configuration(self,config_name,arcsec_east,arcsec_north):
+    '''
+    Nudge the coordinates of a configuration east or north in arcsec
+    for better alignment.
+
+    Parameters
+    ----------
+    config_name: str
+      name of configuration to nudge
+    arcsec_east: float
+      amount to nudge east (west is negative) in arcsec
+    arcsec_north: float
+      amount to nudge north (south is negative) in arcsec
+    '''
+    new_coordinate = self.configs[config_name]['coordinates'].directional_offset_by(0,arcsec_north*u.arcsec)
+    new_coordinate = new_coordinate.directional_offset_by(90,arcsec_east*u.arcsec)
+    self.configs[config_name]['coordinates'] = new_coordinate
+
+
   @property
   def configurations(self):
     return self.list_configurations()
