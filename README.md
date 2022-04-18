@@ -445,15 +445,19 @@ I've supplied the coordinates for our offset star, which in this case can be app
 
 There are some convenience methods to allow you to `remove_configuration(config_name)` and `edit_configuration(config_name,property,value)` which are pretty self-explanatory. Editing is not super useful — you might as well change and readd (overwrite) your entry for that configuration. 
 
-### Retrieving Finder Charts 
+### Nudging Coordinates
 
-We can retrieve a DSS image (finder chart) for any configuration which has coordinates defined. 
-
+You may find that upon viewing your slit over your object, it is not precisely aligned as you would like. We provide the ability to "nudge" your target coordinates as follows:
 
 ```python
-%matplotlib inline
+m82.nudge_configuration(config_name='primary',arcsec_east=4,arcsec_north=0)
 ```
 
+The above snippet would nudge the coordinates of the primary configuration of m82 to be four arcseconds east of its current position. Note that south and west are both entered via negatives. For now, arcsec is the hardcoded unit but this will likely change.
+
+### Retrieving Finder Charts 
+
+We can retrieve a finder chart for any configuration which has coordinates defined. These examples use DSS but the code now uses SDSSg as a default.
 
 ```python
 m82.retrieve_finder_chart(config_name='primary',
@@ -496,6 +500,14 @@ m82.retrieve_finder_chart(config_name='tertiary',
 ![png](Examples/md/img/output_32_1.png)
 
 Later on, we're going to automatically export an html page with an observing plan. It will attempt to figure out a size to use for this when it comes to finder charts -- e.g., if a slit width is provided using `slit_width`, it will be 1.5 times that length in dimension. If you wish to set this size for a given configuration, simply add the `finder_size` parameter to your configuration. It won't show up in the configuration table, but will set the the size of the finder. In the same way, you can set the special parameter `image_scaling`. This sets the scale of the image as defined by the `implot()` function (namely, the image is scaled to the bounds [ mu-(scale x std), mu+(scale x std) ]. This parameter can quickly help bring over or under saturated finder images into better form.
+
+The finder charts are currently pulled using the `astroquery.SkyView()` class, which has a `list_surveys()` method to let you see available surveys. If you want to change which survey the finder pulls from, e.g., switch from the default SDSSg to DSS, you can run 
+
+```python
+m82.set_survey('DSS')
+```
+
+Now, all configurations for m82 will use DSS rather than SDSSg when finders are called for. This lets you specify in your observing setup script dynamically across targets which survey you want them to use. Currently, you can't set different surveys for different configurations of the same target. 
 
 ### Adding Custom Imaging 
 
