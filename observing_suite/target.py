@@ -54,8 +54,7 @@ class Target():
           else:
             self.coordinates =  SkyCoord(coordinates,unit=coord_units)
         elif isinstance(coordinates,SkyCoord):
-          self.coordinates = coordinates
-           
+          self.coordinates = coordinates           
     self.configs = {}
     
   
@@ -106,7 +105,7 @@ class Target():
       self.configs[config_name]['coordinates'] = None
     for i in kwargs.keys():
       self.configs[config_name][i] = kwargs[i]
- 
+
   def remove_configuration(self,config_name):
     '''
     Remove a configuration from the list
@@ -232,7 +231,7 @@ class Target():
         slit = SkyRectangularAperture(self.configs[config_name]['coordinates'],
                                     w=self.configs[config_name]['slit_width'],
                                     h=self.configs[config_name]['slit_length'],
-                                    theta=self.configs[config_name]['PA'])
+                                    theta=self.configs[config_name]['PA']+90*u.deg)
         slit.to_pixel(wcs).plot(color='r',lw=3)
       elif self.configs[config_name].keys() >= {'fiber_radius'}:
         fiber = SkyCircularAperture(self.configs[config_name]['coordinates'],
