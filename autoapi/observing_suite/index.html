@@ -1,0 +1,841 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>observing_suite &#8212; Observing Suite Manual</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script >const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Observing Suite Manual</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../README.html">
+   Observing Suite
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Manual
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Overview.html">
+   Observing-Suite
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  API
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../api.html">
+   API documentation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../_autosummary/observing_suite.html">
+     observing_suite
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../_autosummary/observing_suite.imaging.html">
+       observing_suite.imaging
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../_autosummary/observing_suite.observing_log.html">
+       observing_suite.observing_log
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../_autosummary/observing_suite.observing_plan.html">
+       observing_suite.observing_plan
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../_autosummary/observing_suite.target.html">
+       observing_suite.target
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/autoapi/observing_suite/index.rst"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.rst</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#submodules">
+   Submodules
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#package-contents">
+   Package Contents
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#classes">
+     Classes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#functions">
+     Functions
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#observing_suite.Target">
+       Target
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#observing_suite.Target.add_configuration">
+         add_configuration
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#observing_suite.Target.remove_configuration">
+         remove_configuration
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#observing_suite.Target.edit_configuration">
+         edit_configuration
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#observing_suite.Target.add_offset_star">
+         add_offset_star
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#observing_suite.Target.set_survey">
+         set_survey
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#observing_suite.Target.retrieve_finder_chart">
+         retrieve_finder_chart
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#observing_suite.Target.add_custom_image">
+         add_custom_image
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#observing_suite.Target.show_custom_image">
+         show_custom_image
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#observing_suite.Target.list_configurations">
+         list_configurations
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#observing_suite.Target.nudge_configuration">
+         nudge_configuration
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#observing_suite.Target.configurations">
+         configurations
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#observing_suite.implot">
+       implot
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#observing_suite.ScalePlot">
+       ScalePlot
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#observing_suite.ScalePlot.plot">
+         plot
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#observing_suite.ObservingPlan">
+       ObservingPlan
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#observing_suite.ObservingPlan.plot_visibility">
+         plot_visibility
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#observing_suite.ObservingPlan.html_summary">
+         html_summary
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>observing_suite</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#submodules">
+   Submodules
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#package-contents">
+   Package Contents
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#classes">
+     Classes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#functions">
+     Functions
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#observing_suite.Target">
+       Target
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#observing_suite.Target.add_configuration">
+         add_configuration
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#observing_suite.Target.remove_configuration">
+         remove_configuration
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#observing_suite.Target.edit_configuration">
+         edit_configuration
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#observing_suite.Target.add_offset_star">
+         add_offset_star
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#observing_suite.Target.set_survey">
+         set_survey
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#observing_suite.Target.retrieve_finder_chart">
+         retrieve_finder_chart
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#observing_suite.Target.add_custom_image">
+         add_custom_image
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#observing_suite.Target.show_custom_image">
+         show_custom_image
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#observing_suite.Target.list_configurations">
+         list_configurations
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#observing_suite.Target.nudge_configuration">
+         nudge_configuration
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#observing_suite.Target.configurations">
+         configurations
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#observing_suite.implot">
+       implot
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#observing_suite.ScalePlot">
+       ScalePlot
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#observing_suite.ScalePlot.plot">
+         plot
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#observing_suite.ObservingPlan">
+       ObservingPlan
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#observing_suite.ObservingPlan.plot_visibility">
+         plot_visibility
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#observing_suite.ObservingPlan.html_summary">
+         html_summary
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="section" id="module-observing_suite">
+<span id="observing-suite"></span><h1><a class="reference internal" href="#module-observing_suite" title="observing_suite"><code class="xref py py-mod docutils literal notranslate"><span class="pre">observing_suite</span></code></a><a class="headerlink" href="#module-observing_suite" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="imaging/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">observing_suite.imaging</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="observing_log/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">observing_suite.observing_log</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="observing_plan/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">observing_suite.observing_plan</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="target/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">observing_suite.target</span></code></a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="package-contents">
+<h2>Package Contents<a class="headerlink" href="#package-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#observing_suite.Target" title="observing_suite.Target"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Target</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#observing_suite.ScalePlot" title="observing_suite.ScalePlot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScalePlot</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#observing_suite.ObservingPlan" title="observing_suite.ObservingPlan"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ObservingPlan</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#observing_suite.implot" title="observing_suite.implot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">implot</span></code></a>(image, figsize=(15, 13), cmap='gray_r', scale=0.5, colorbar=False, header=None, wcs=None, **kwargs)</p></td>
+<td><p>Plot an astronomical image, setting default options and easy tweaking of parameters</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt id="observing_suite.Target">
+<em class="property">class </em><code class="sig-name descname">Target</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">parse_name</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">coordinates</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">coord_units</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/observing_suite/target.html#Target"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#observing_suite.Target" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt id="observing_suite.Target.add_configuration">
+<code class="sig-name descname">add_configuration</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">config_name</span></em>, <em class="sig-param"><span class="n">obstype</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">coordinates</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">coord_units</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/observing_suite/target.html#Target.add_configuration"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#observing_suite.Target.add_configuration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add an observing configuration for this target, specifying as many fields as desired.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>config_name</strong> (<em>str</em>) – Name for this configuration. As names are eventually used in the exporting of targetlists, it is worth keeping the name short-ish, as many observatories have character limits on this column</p></li>
+<li><p><strong>obstype</strong> (<em>str</em><em>, </em><em>optional</em><em>, </em><em>default None</em>) – For now, either ‘imaging’ or ‘spectroscopy’. Some features later on depend on this.</p></li>
+<li><p><strong>coordinates</strong> (<em>str</em><em> or </em><em>SkyCoord</em><em>, </em><em>optional</em><em>, </em><em>default None</em>) – If the coordinates of this configuration differ from the object coordinates or from other configurations, supply coordinates (either SkyCoord or string). If string, coord_units must be provided.</p></li>
+<li><p><strong>coord_units</strong> (<em>tuple</em><em> or </em><em>str</em><em>, </em><em>optional</em><em>, </em><em>default None</em>) – If coordinates are provided as a string, a unit (e.g., (u.hourangle, u.deg) or ‘deg’) as accepted by SkyCoord is required.</p></li>
+<li><p><strong>**kwargs</strong> (<em>optional</em>) – Any desired fields for this configuration one wants displayed later, e.g., slit pa, slit width, etc., can be added as keyword arguments with values, and will be stored.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>None</em></p></li>
+<li><p><em>Sets</em></p></li>
+<li><p><em>—-</em></p></li>
+<li><p><strong>self.configs</strong> (<em>dict</em>) – dictionary of all configuration specifications.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="observing_suite.Target.remove_configuration">
+<code class="sig-name descname">remove_configuration</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">config_name</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/observing_suite/target.html#Target.remove_configuration"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#observing_suite.Target.remove_configuration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove a configuration from the list</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>config_name</strong> (<em>str</em>) – the configuration name to remove</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="observing_suite.Target.edit_configuration">
+<code class="sig-name descname">edit_configuration</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">config_name</span></em>, <em class="sig-param"><span class="n">quantity</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/observing_suite/target.html#Target.edit_configuration"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#observing_suite.Target.edit_configuration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Edit a configuration by changing the value in one of the columns.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>config_name</strong> (<em>str</em>) – the name of the configuration to edit</p></li>
+<li><p><strong>quantity</strong> (<em>str</em>) – the name of the quantity (e.g., ‘obstype’, or a quantity added via keyword argument) to edit</p></li>
+<li><p><strong>value</strong> (<em>Any</em>) – updated value. As a note, we recommend only using this for simple string/display values. Editing, e.g., coordinates this way does not run the code to make a new SkyCoord. To change the coordinates associated with a configuration, we suggest re-adding it (with the same name) but new coords to overwrite it.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="observing_suite.Target.add_offset_star">
+<code class="sig-name descname">add_offset_star</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">coordinate</span></em>, <em class="sig-param"><span class="n">coord_units</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">configurations</span><span class="o">=</span><span class="default_value">'all'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/observing_suite/target.html#Target.add_offset_star"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#observing_suite.Target.add_offset_star" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add an offset star to the configuration. Offset stars are used to execute blind offsets when a source is too faint to see in typical aquisition exposures.
+If an offset star is provided, the offsets between the star and the configurations coordinates (in arcsec east and north) is automatically calculated and added to the configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>coordinate</strong> (<em>str</em><em> or </em><em>SkyCoord</em>) – coordinates of the offset star. Either SkyCoord object or string. If string provided, must also provide coord_units for creation of SkyCoord object.</p></li>
+<li><p><strong>coord_units</strong> (<em>tuple</em><em> or </em><em>str</em><em>, </em><em>optional</em><em>, </em><em>default None</em>) – if coordinates provided as a string, units acceptable by SkyCoord (e.g., (u.hourangle, u.deg) or ‘deg’) must be provided here.</p></li>
+<li><p><strong>configurations</strong> (<em>str</em><em> or </em><em>list</em><em>, </em><em>optional</em><em>, </em><em>default 'all'</em>) – Which configurations to apply this offset star to. Default is ‘all’, one can pass individual configuration names as strings, or a list of configuration names (as strings).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>None</em></p></li>
+<li><p><em>Sets</em></p></li>
+<li><p><em>—-</em></p></li>
+<li><p><em>Sets the ‘offset star’ key for the chosen configuration(s) as the star coordinates and the ‘offsets’ key to the offsets, visible via view_configurations().</em></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="observing_suite.Target.set_survey">
+<code class="sig-name descname">set_survey</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">survey_name</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/observing_suite/target.html#Target.set_survey"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#observing_suite.Target.set_survey" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="observing_suite.Target.retrieve_finder_chart">
+<code class="sig-name descname">retrieve_finder_chart</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">config_name</span></em>, <em class="sig-param"><span class="n">size</span></em>, <em class="sig-param"><span class="n">pixels</span><span class="o">=</span><span class="default_value">500</span></em>, <em class="sig-param"><span class="n">show_aperture</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">implot_kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/observing_suite/target.html#Target.retrieve_finder_chart"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#observing_suite.Target.retrieve_finder_chart" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve a DSS image (finder chart) around the target. If obsmode is spectroscopy, optionally show the location of the slit or circular fiber on the image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>config_name</strong> (<em>str</em>) – name of the configuration to retrieve finder for</p></li>
+<li><p><strong>size</strong> (<em>astropy Quantity</em>) – dimensions of the finder box to use. Box is square.</p></li>
+<li><p><strong>pixels</strong> (<em>int</em><em>, </em><em>optional</em><em> (</em><em>default 500</em><em>)</em>) – dimensions (in pixels) of the image to retrieve. (Larger downloads take longer).</p></li>
+<li><p><strong>show_aperture</strong> (<em>bool</em><em>, </em><em>optional</em><em> (</em><em>default True</em><em>)</em>) – flag for whether to show an apertuer (rectangular slits and circular apertures supported). If this flag turned on, the following must be true.
+For slits, your configuration must have properties <cite>slit_width</cite>, <cite>slit_length</cite>, and <cite>PA</cite>.
+For circular apertures, your configuration must have a property <cite>fiber_radius</cite>.</p></li>
+<li><p><strong>**implot_kwargs</strong> (<em>optional</em>) – arguments passed to the utility function <cite>implot</cite> to display the image. These include scale (images are scaled about their mean pixel value), colorbar flag, etc.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>fig, ax</strong> – the fig and ax on which the dss image and possible aperture was plotted.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>matplotlib figure and axes objects</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="observing_suite.Target.add_custom_image">
+<code class="sig-name descname">add_custom_image</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">config_name</span></em>, <em class="sig-param"><span class="n">image_name</span></em>, <em class="sig-param"><span class="n">image</span></em>, <em class="sig-param"><span class="n">wcs</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/observing_suite/target.html#Target.add_custom_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#observing_suite.Target.add_custom_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a custom image of your target. Allows for your image to be added to the observing plan along with, e.g., retrieved DSS imaging.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>config_name</strong> (<em>str</em><em> or </em><em>list</em>) – configuration for which this image should apply. Can be a single configuration string, a list of configuration strings, or ‘all’.</p></li>
+<li><p><strong>image_name</strong> (<em>str</em>) – a name for the image (for later plotting and access).</p></li>
+<li><p><strong>image</strong> (<em>array_like</em>) – the array containing the image</p></li>
+<li><p><strong>wcs</strong> (<em>astropy.WCS</em><em>, </em><em>optional</em><em> (</em><em>default None</em><em>)</em>) – a wcs object defining the coordinates of the image. This must be provided for some functionality, like overplotting slits/apertures.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="observing_suite.Target.show_custom_image">
+<code class="sig-name descname">show_custom_image</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">config_name</span></em>, <em class="sig-param"><span class="n">image_name</span></em>, <em class="sig-param"><span class="n">show_aperture</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">implot_kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/observing_suite/target.html#Target.show_custom_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#observing_suite.Target.show_custom_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display the custom image provided by user. If possible, show aperture (slit/fiber) over it.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="observing_suite.Target.list_configurations">
+<code class="sig-name descname">list_configurations</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/observing_suite/target.html#Target.list_configurations"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#observing_suite.Target.list_configurations" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="observing_suite.Target.nudge_configuration">
+<code class="sig-name descname">nudge_configuration</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">config_name</span></em>, <em class="sig-param"><span class="n">arcsec_east</span></em>, <em class="sig-param"><span class="n">arcsec_north</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/observing_suite/target.html#Target.nudge_configuration"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#observing_suite.Target.nudge_configuration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Nudge the coordinates of a configuration east or north in arcsec
+for better alignment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>config_name</strong> (<em>str</em>) – name of configuration to nudge</p></li>
+<li><p><strong>arcsec_east</strong> (<em>float</em>) – amount to nudge east (west is negative) in arcsec</p></li>
+<li><p><strong>arcsec_north</strong> (<em>float</em>) – amount to nudge north (south is negative) in arcsec</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="observing_suite.Target.configurations">
+<em class="property">property </em><code class="sig-name descname">configurations</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#observing_suite.Target.configurations" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="observing_suite.implot">
+<code class="sig-name descname">implot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">image</span></em>, <em class="sig-param"><span class="n">figsize</span><span class="o">=</span><span class="default_value">15, 13</span></em>, <em class="sig-param"><span class="n">cmap</span><span class="o">=</span><span class="default_value">'gray_r'</span></em>, <em class="sig-param"><span class="n">scale</span><span class="o">=</span><span class="default_value">0.5</span></em>, <em class="sig-param"><span class="n">colorbar</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">header</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">wcs</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/observing_suite/imaging.html#implot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#observing_suite.implot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot an astronomical image, setting default options and easy tweaking of parameters</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image</strong> (<em>array_like</em>) – 2D array containing an astronomical image to be plotted. Cutouts should be input as cutout.data.</p></li>
+<li><p><strong>figsize</strong> (<em>tuple</em><em>, </em><em>optional</em>) – figure size to use. Default: (15,13)</p></li>
+<li><p><strong>cmap</strong> (<em>str</em><em>, </em><em>optional</em>) – Colormap to use for the image. Default: ‘gray_r’</p></li>
+<li><p><strong>scale</strong> (<em>float</em><em>, </em><em>optional</em>) – By default, function will scale image to some number of standard deviations about the mean pixel value. Scale sets this number (or fraction). Default: 0.5.</p></li>
+<li><p><strong>colorbar</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to add a colorbar or not. Default: False</p></li>
+<li><p><strong>header</strong> (<em>dict</em><em>, </em><em>optional</em>) – If input, function will attempt to create a WCS object from header and plot in celestial coordinates. Default: None</p></li>
+<li><p><strong>wcs</strong> (<em>WCS object</em>) – If input, the function will plot using a projection set by the WCS. Default: None</p></li>
+<li><p><strong>**kwargs</strong> – Additional arguments are passed to matplotlib plotting commands. Currently supported: vmin, vmax.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>figure and axes objects containing currently plotted data.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>fig, ax</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt id="observing_suite.ScalePlot">
+<em class="property">class </em><code class="sig-name descname">ScalePlot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">image</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/observing_suite/imaging.html#ScalePlot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#observing_suite.ScalePlot" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt id="observing_suite.ScalePlot.plot">
+<code class="sig-name descname">plot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">meanScalar</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">stdScalar</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/observing_suite/imaging.html#ScalePlot.plot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#observing_suite.ScalePlot.plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function for plotting astronomical images, adding the convenience of scaling sliders and a colormap inverter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image</strong> (<em>array_like</em>) – the image to be plotted.</p></li>
+<li><p><strong>kwargs</strong> (<em>dict</em><em>, </em><em>optional</em>) – any specific keywords for the <cite>myutils.plotting.implot()</cite> function</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>fig, ax</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>the figure and axes objects</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="observing_suite.ObservingPlan">
+<em class="property">class </em><code class="sig-name descname">ObservingPlan</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">target_list</span></em>, <em class="sig-param"><span class="n">observatory</span></em>, <em class="sig-param"><span class="n">obsdates</span></em>, <em class="sig-param"><span class="n">utcoffset</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/observing_suite/observing_plan.html#ObservingPlan"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#observing_suite.ObservingPlan" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt id="observing_suite.ObservingPlan.plot_visibility">
+<code class="sig-name descname">plot_visibility</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">date</span></em>, <em class="sig-param"><span class="n">target</span><span class="o">=</span><span class="default_value">'all'</span></em>, <em class="sig-param"><span class="n">view_range</span><span class="o">=</span><span class="default_value">12</span></em>, <em class="sig-param"><span class="n">plot_current_time</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">figsize</span><span class="o">=</span><span class="default_value">30, 12</span></em>, <em class="sig-param"><span class="n">alt_min</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">alt_max</span><span class="o">=</span><span class="default_value">90</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/observing_suite/observing_plan.html#ObservingPlan.plot_visibility"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#observing_suite.ObservingPlan.plot_visibility" title="Permalink to this definition">¶</a></dt>
+<dd><p>Produce a plot of altitude and airmass for targets on a given night of observing.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>date</strong> (<em>str</em>) – date on which to make the plot. In form ‘YYYY-MM-DD’. Must be a date specified within obsdate.</p></li>
+<li><p><strong>target</strong> (<em>str</em><em> or </em><em>list</em><em>, </em><em>optional</em><em> (</em><em>default 'all'</em><em>)</em>) – target to plot track for. deault is “all”. Individual targets can be specified by name (str), via a list or, for single objects, a str.</p></li>
+<li><p><strong>view_range</strong> (<em>int</em><em>, </em><em>optional</em><em>, </em><em>default 12</em>) – number of hours on either side of midnight over which to show the plot</p></li>
+<li><p><strong>plot_current_time</strong> (<em>bool</em><em>, </em><em>optional</em><em> (</em><em>default False</em><em>)</em>) – show a vertical bar at the current time (when code executed). Useful when making plot interactively during a night.</p></li>
+<li><p><strong>figsize</strong> (<em>tuple</em><em>, </em><em>optional</em><em> (</em><em>default</em><em> (</em><em>15</em><em>,</em><em>12</em><em>)</em><em>)</em>) – tuple specifying the figure size</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="observing_suite.ObservingPlan.html_summary">
+<code class="sig-name descname">html_summary</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">date</span></em>, <em class="sig-param"><span class="n">save_dir</span></em>, <em class="sig-param"><span class="n">overwrite</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">view_range</span><span class="o">=</span><span class="default_value">12</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/observing_suite/observing_plan.html#ObservingPlan.html_summary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#observing_suite.ObservingPlan.html_summary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Produce a ‘beautiful’ html output with the observing plan.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>date</strong> (<em>str</em>) – date for which to construct the report. Must be a date present in the obsdates provided.</p></li>
+<li><p><strong>save_dir</strong> (<em>str</em>) – location to save the observing plan. Spawns an image directory for relevant plots.</p></li>
+<li><p><strong>overwrite</strong> (<em>bool</em><em>, </em><em>optional</em><em> (</em><em>default True</em><em>)</em>) – When set to true, constituant elements (like finder charts, airmass plots, etc) will be re-computed and saved to disk.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./autoapi/observing_suite"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Imad Pasha<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
