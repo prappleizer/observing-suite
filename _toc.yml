@@ -1,0 +1,9 @@
+format: jb-book
+root: README
+parts:
+  - caption: Manual
+    chapters:
+    - file: Overview
+  - caption: API
+    chapters: 
+      - file: api.rst

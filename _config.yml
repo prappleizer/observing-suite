@@ -1,0 +1,15 @@
+title: Observing Suite Manual
+author: Imad Pasha
+execute:
+  execute_notebooks: off
+sphinx:
+  extra_extensions:
+  - 'sphinx.ext.napoleon'
+  - 'autoapi.extension'
+  - 'sphinx.ext.autodoc'
+  - 'sphinx.ext.autosummary'
+  - 'sphinx.ext.viewcode'
+  config:
+    autosummary_generate: True
+    add_module_names: False
+    autoapi_dirs: 'observing_suite/'

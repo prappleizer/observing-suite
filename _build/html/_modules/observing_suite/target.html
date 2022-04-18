@@ -1,0 +1,576 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>observing_suite.target &#8212; Observing Suite Manual</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script >const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Observing Suite Manual</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../README.html">
+   Observing Suite
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Manual
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Overview.html">
+   Observing-Suite
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  API
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../api.html">
+   API documentation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../_autosummary/observing_suite.html">
+     observing_suite
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../_autosummary/observing_suite.imaging.html">
+       observing_suite.imaging
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../_autosummary/observing_suite.observing_log.html">
+       observing_suite.observing_log
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../_autosummary/observing_suite.observing_plan.html">
+       observing_suite.observing_plan
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../_autosummary/observing_suite.target.html">
+       observing_suite.target
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1></h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <h1>Source code for observing_suite.target</h1><div class="highlight"><pre>
+<span></span>
+<span class="kn">from</span> <span class="nn">ast</span> <span class="kn">import</span> <span class="n">Continue</span>
+<span class="kn">from</span> <span class="nn">astropy.io</span> <span class="kn">import</span> <span class="n">fits</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> 
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">astropy.units</span> <span class="k">as</span> <span class="nn">u</span>
+<span class="kn">from</span> <span class="nn">astropy.wcs</span> <span class="kn">import</span> <span class="n">WCS</span>
+<span class="kn">from</span> <span class="nn">astropy.coordinates</span> <span class="kn">import</span> <span class="n">SkyCoord</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">photutils.aperture</span> <span class="kn">import</span> <span class="n">SkyRectangularAperture</span><span class="p">,</span> <span class="n">SkyCircularAperture</span>
+<span class="kn">from</span> <span class="nn">.imaging</span> <span class="kn">import</span> <span class="n">implot</span> 
+<span class="kn">from</span> <span class="nn">astroquery.skyview</span> <span class="kn">import</span> <span class="n">SkyView</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Target&#39;</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="Target"><a class="viewcode-back" href="../../autoapi/observing_suite/target/index.html#observing_suite.Target">[docs]</a><span class="k">class</span> <span class="nc">Target</span><span class="p">():</span>
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">parse_name</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">coordinates</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">coord_units</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Initializes the Target object. </span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    name: str</span>
+<span class="sd">      name to use for the target throughout the suite. </span>
+<span class="sd">    parse_name: bool, optional, default True</span>
+<span class="sd">      If the name is that of a known object resolvable by Simbad, parse it to determine coordinates. </span>
+<span class="sd">    coordinates: SkyCoord or str, optional, default None</span>
+<span class="sd">      If parse_name is False, supply coordinates for the target manually. Must be a SkyCoord object or string with coordinates. If string, coord_units must be supplied. </span>
+<span class="sd">    coord_units: tuple or str, optional, default None</span>
+<span class="sd">      if supplying coordinates as a string, the units as accepted by SkyCoord must be provided, e.g., (u.hourangle,u.deg) or &#39;deg&#39;. </span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    None </span>
+<span class="sd">    </span>
+<span class="sd">    Sets</span>
+<span class="sd">    ----</span>
+<span class="sd">    configs: dict</span>
+<span class="sd">      a dictionary containing configuration information.</span>
+<span class="sd">    </span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    It is not strictly necessary for the Target itself to have coordinates defined, but every configuration must. </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+    <span class="k">if</span> <span class="n">parse_name</span><span class="p">:</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">coordinates</span> <span class="o">=</span> <span class="n">SkyCoord</span><span class="o">.</span><span class="n">from_name</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="k">if</span> <span class="n">coordinates</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">coordinates</span><span class="p">,</span><span class="nb">str</span><span class="p">):</span>
+          <span class="k">if</span> <span class="n">coord_units</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="s1">&#39;When providing string coordinates, a coordinate units accepted by SkyCoord are required to be passed to coord_units&#39;</span><span class="p">)</span>
+          <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">coordinates</span> <span class="o">=</span>  <span class="n">SkyCoord</span><span class="p">(</span><span class="n">coordinates</span><span class="p">,</span><span class="n">unit</span><span class="o">=</span><span class="n">coord_units</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">coordinates</span><span class="p">,</span><span class="n">SkyCoord</span><span class="p">):</span>
+          <span class="bp">self</span><span class="o">.</span><span class="n">coordinates</span> <span class="o">=</span> <span class="n">coordinates</span>           
+    <span class="bp">self</span><span class="o">.</span><span class="n">configs</span> <span class="o">=</span> <span class="p">{}</span>
+    
+  
+<div class="viewcode-block" id="Target.add_configuration"><a class="viewcode-back" href="../../autoapi/observing_suite/target/index.html#observing_suite.Target.add_configuration">[docs]</a>  <span class="k">def</span> <span class="nf">add_configuration</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">config_name</span><span class="p">,</span><span class="n">obstype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">coordinates</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">coord_units</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Add an observing configuration for this target, specifying as many fields as desired.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    config_name: str</span>
+<span class="sd">      Name for this configuration. As names are eventually used in the exporting of targetlists, it is worth keeping the name short-ish, as many observatories have character limits on this column</span>
+<span class="sd">    obstype: str, optional, default None</span>
+<span class="sd">      For now, either &#39;imaging&#39; or &#39;spectroscopy&#39;. Some features later on depend on this. </span>
+<span class="sd">    coordinates: str or SkyCoord, optional, default None</span>
+<span class="sd">      If the coordinates of this configuration differ from the object coordinates or from other configurations, supply coordinates (either SkyCoord or string). If string, coord_units must be provided. </span>
+<span class="sd">    coord_units: tuple or str, optional, default None</span>
+<span class="sd">      If coordinates are provided as a string, a unit (e.g., (u.hourangle, u.deg) or &#39;deg&#39;) as accepted by SkyCoord is required. </span>
+<span class="sd">    **kwargs: optional </span>
+<span class="sd">      Any desired fields for this configuration one wants displayed later, e.g., slit pa, slit width, etc., can be added as keyword arguments with values, and will be stored.</span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    None</span>
+<span class="sd">    </span>
+<span class="sd">    Sets</span>
+<span class="sd">    ----</span>
+<span class="sd">    self.configs: dict</span>
+<span class="sd">      dictionary of all configuration specifications.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="n">config_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="n">cont</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Config Name </span><span class="si">{</span><span class="n">config_name</span><span class="si">}</span><span class="s1"> already a configuration. Overwrite? [Enter yes, N for no]: &#39;</span><span class="p">)</span>
+        <span class="k">if</span>  <span class="n">cont</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;N&#39;</span><span class="p">:</span>
+            <span class="k">return</span> 
+            
+    <span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="n">config_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="n">config_name</span><span class="p">][</span><span class="s1">&#39;obstype&#39;</span><span class="p">]</span><span class="o">=</span> <span class="n">obstype</span>
+    <span class="k">if</span> <span class="n">coordinates</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+      <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">coordinates</span><span class="p">,</span><span class="n">SkyCoord</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="n">config_name</span><span class="p">][</span><span class="s1">&#39;coordinates&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">coordinates</span>
+      <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">coordinates</span><span class="p">,</span><span class="nb">str</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">coord_units</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+          <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="s1">&#39;When providing string coordinates, a coordinate units accepted by SkyCoord are required to be passed to coord_units&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+          <span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="n">config_name</span><span class="p">][</span><span class="s1">&#39;coordinates&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">SkyCoord</span><span class="p">(</span><span class="n">coordinates</span><span class="p">,</span><span class="n">unit</span><span class="o">=</span><span class="n">coord_units</span><span class="p">)</span>   
+    <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">coordinates</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="n">config_name</span><span class="p">][</span><span class="s1">&#39;coordinates&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">coordinates</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="n">config_name</span><span class="p">][</span><span class="s1">&#39;coordinates&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="n">config_name</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="Target.remove_configuration"><a class="viewcode-back" href="../../autoapi/observing_suite/target/index.html#observing_suite.Target.remove_configuration">[docs]</a>  <span class="k">def</span> <span class="nf">remove_configuration</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">config_name</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Remove a configuration from the list</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    config_name: str</span>
+<span class="sd">      the configuration name to remove</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">try</span><span class="p">:</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">config_name</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;config not found&#39;</span><span class="p">)</span>
+      <span class="k">return</span></div>
+<div class="viewcode-block" id="Target.edit_configuration"><a class="viewcode-back" href="../../autoapi/observing_suite/target/index.html#observing_suite.Target.edit_configuration">[docs]</a>  <span class="k">def</span> <span class="nf">edit_configuration</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">config_name</span><span class="p">,</span><span class="n">quantity</span><span class="p">,</span><span class="n">value</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Edit a configuration by changing the value in one of the columns.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    config_name: str</span>
+<span class="sd">      the name of the configuration to edit</span>
+<span class="sd">    quantity: str</span>
+<span class="sd">      the name of the quantity (e.g., &#39;obstype&#39;, or a quantity added via keyword argument) to edit</span>
+<span class="sd">    value: Any</span>
+<span class="sd">      updated value. As a note, we recommend only using this for simple string/display values. Editing, e.g., coordinates this way does not run the code to make a new SkyCoord. To change the coordinates associated with a configuration, we suggest re-adding it (with the same name) but new coords to overwrite it.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">try</span><span class="p">:</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="n">config_name</span><span class="p">][</span><span class="n">quantity</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+    <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;configuration name not found&#39;</span><span class="p">)</span>
+      <span class="k">return</span></div>
+  
+
+<div class="viewcode-block" id="Target.add_offset_star"><a class="viewcode-back" href="../../autoapi/observing_suite/target/index.html#observing_suite.Target.add_offset_star">[docs]</a>  <span class="k">def</span> <span class="nf">add_offset_star</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">coordinate</span><span class="p">,</span><span class="n">coord_units</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">configurations</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Add an offset star to the configuration. Offset stars are used to execute blind offsets when a source is too faint to see in typical aquisition exposures.</span>
+<span class="sd">    If an offset star is provided, the offsets between the star and the configurations coordinates (in arcsec east and north) is automatically calculated and added to the configuration.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    coordinate: str or SkyCoord</span>
+<span class="sd">      coordinates of the offset star. Either SkyCoord object or string. If string provided, must also provide coord_units for creation of SkyCoord object.</span>
+<span class="sd">    coord_units: tuple or str, optional, default None</span>
+<span class="sd">      if coordinates provided as a string, units acceptable by SkyCoord (e.g., (u.hourangle, u.deg) or &#39;deg&#39;) must be provided here. </span>
+<span class="sd">    configurations: str or list, optional, default &#39;all&#39;</span>
+<span class="sd">      Which configurations to apply this offset star to. Default is &#39;all&#39;, one can pass individual configuration names as strings, or a list of configuration names (as strings).</span>
+<span class="sd">      </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    None</span>
+<span class="sd">    </span>
+<span class="sd">    Sets</span>
+<span class="sd">    ----</span>
+<span class="sd">    Sets the &#39;offset star&#39; key for the chosen configuration(s) as the star coordinates and the &#39;offsets&#39; key to the offsets, visible via view_configurations().</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">coordinate</span><span class="p">,</span><span class="nb">str</span><span class="p">):</span>
+      <span class="k">if</span> <span class="n">coord_units</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">coord</span> <span class="o">=</span> <span class="n">SkyCoord</span><span class="p">(</span><span class="n">coordinate</span><span class="p">,</span><span class="n">unit</span><span class="o">=</span><span class="n">coord_units</span><span class="p">)</span>
+      <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="s1">&#39;If string coordinate provided, units must be provided for SkyCoord creation&#39;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">coordinate</span><span class="p">,</span><span class="n">SkyCoord</span><span class="p">):</span>
+      <span class="n">coord</span> <span class="o">=</span> <span class="n">coordinate</span>
+    <span class="k">if</span> <span class="n">configurations</span><span class="o">==</span><span class="s1">&#39;all&#39;</span><span class="p">:</span>
+      <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="n">os</span> <span class="o">=</span> <span class="n">coord</span><span class="o">.</span><span class="n">spherical_offsets_to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;coordinates&#39;</span><span class="p">])</span>
+        <span class="n">os</span> <span class="o">=</span> <span class="p">[</span><span class="n">os</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">arcsec</span><span class="p">),</span><span class="n">os</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">arcsec</span><span class="p">)]</span>
+        <span class="n">add_str</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;&#39;&#39;</span><span class="si">{</span><span class="n">os</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;&#39; E, </span><span class="si">{</span><span class="n">os</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;&#39; N&#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;offset star&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">coord</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;offsets&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">add_str</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">configurations</span><span class="p">,</span><span class="nb">str</span><span class="p">):</span>
+      <span class="n">os</span> <span class="o">=</span> <span class="n">coord</span><span class="o">.</span><span class="n">spherical_offsets_to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="n">configurations</span><span class="p">][</span><span class="s1">&#39;coordinates&#39;</span><span class="p">])</span>
+      <span class="n">os</span> <span class="o">=</span> <span class="p">[</span><span class="n">os</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">arcsec</span><span class="p">),</span><span class="n">os</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">arcsec</span><span class="p">)]</span>
+      <span class="n">add_str</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;&#39;&#39;</span><span class="si">{</span><span class="n">os</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;&#39; E, </span><span class="si">{</span><span class="n">os</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;&#39; N&#39;&#39;&#39;</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="n">configurations</span><span class="p">][</span><span class="s1">&#39;offset star&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">coord</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="n">configurations</span><span class="p">][</span><span class="s1">&#39;offsets&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">add_str</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">configurations</span><span class="p">,</span><span class="nb">list</span><span class="p">):</span>
+      <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">configurations</span><span class="p">:</span>
+        <span class="n">os</span> <span class="o">=</span> <span class="n">coord</span><span class="o">.</span><span class="n">spherical_offsets_to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;coordinates&#39;</span><span class="p">])</span>
+        <span class="n">os</span> <span class="o">=</span> <span class="p">[</span><span class="n">os</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">arcsec</span><span class="p">),</span><span class="n">os</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">arcsec</span><span class="p">)]</span>
+        <span class="n">add_str</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;&#39;&#39;</span><span class="si">{</span><span class="n">os</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;&#39; E, </span><span class="si">{</span><span class="n">os</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;&#39; N&#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;offset star&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">coord</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;offsets&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">add_str</span></div>
+        
+<div class="viewcode-block" id="Target.set_survey"><a class="viewcode-back" href="../../autoapi/observing_suite/target/index.html#observing_suite.Target.set_survey">[docs]</a>  <span class="k">def</span> <span class="nf">set_survey</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">survey_name</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">survey_name</span> <span class="o">=</span> <span class="n">survey_name</span></div>
+  
+<div class="viewcode-block" id="Target.retrieve_finder_chart"><a class="viewcode-back" href="../../autoapi/observing_suite/target/index.html#observing_suite.Target.retrieve_finder_chart">[docs]</a>  <span class="k">def</span> <span class="nf">retrieve_finder_chart</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">config_name</span><span class="p">,</span><span class="n">size</span><span class="p">,</span><span class="n">pixels</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span><span class="n">show_aperture</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="o">**</span><span class="n">implot_kwargs</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Retrieve a DSS image (finder chart) around the target. If obsmode is spectroscopy, optionally show the location of the slit or circular fiber on the image.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    config_name: str</span>
+<span class="sd">      name of the configuration to retrieve finder for </span>
+<span class="sd">    size: astropy Quantity</span>
+<span class="sd">      dimensions of the finder box to use. Box is square. </span>
+<span class="sd">    pixels: int, optional (default 500)</span>
+<span class="sd">      dimensions (in pixels) of the image to retrieve. (Larger downloads take longer).</span>
+<span class="sd">    show_aperture: bool, optional (default True)</span>
+<span class="sd">      flag for whether to show an apertuer (rectangular slits and circular apertures supported). If this flag turned on, the following must be true. </span>
+<span class="sd">      For slits, your configuration must have properties `slit_width`, `slit_length`, and `PA`. </span>
+<span class="sd">      For circular apertures, your configuration must have a property `fiber_radius`. </span>
+<span class="sd">    **implot_kwargs: optional</span>
+<span class="sd">      arguments passed to the utility function `implot` to display the image. These include scale (images are scaled about their mean pixel value), colorbar flag, etc. </span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    fig, ax: matplotlib figure and axes objects</span>
+<span class="sd">      the fig and ax on which the dss image and possible aperture was plotted.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">sv</span> <span class="o">=</span> <span class="n">SkyView</span><span class="p">()</span>
+    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="s1">&#39;survey_name&#39;</span><span class="p">):</span>
+      <span class="n">survey</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">survey_name</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="n">survey</span><span class="o">=</span><span class="s1">&#39;SDSSdr7g&#39;</span>
+    <span class="n">paths</span> <span class="o">=</span> <span class="n">sv</span><span class="o">.</span><span class="n">get_images</span><span class="p">(</span><span class="n">position</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="n">config_name</span><span class="p">][</span><span class="s1">&#39;coordinates&#39;</span><span class="p">],</span>
+                      <span class="n">survey</span><span class="o">=</span><span class="p">[</span><span class="n">survey</span><span class="p">],</span>
+                      <span class="n">coordinates</span><span class="o">=</span><span class="s1">&#39;J2000&#39;</span><span class="p">,</span>
+                      <span class="n">width</span><span class="o">=</span><span class="n">size</span><span class="p">,</span>
+                      <span class="n">height</span><span class="o">=</span><span class="n">size</span><span class="p">,</span>
+                      <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                      <span class="n">gridlabels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                      <span class="n">pixels</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">pixels</span><span class="p">))</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">paths</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+    <span class="n">wcs</span> <span class="o">=</span> <span class="n">WCS</span><span class="p">(</span><span class="n">paths</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">header</span><span class="p">)</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">implot</span><span class="p">(</span><span class="n">image</span><span class="p">,</span><span class="n">wcs</span><span class="o">=</span><span class="n">wcs</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span><span class="o">**</span><span class="n">implot_kwargs</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">show_aperture</span><span class="p">:</span>
+      <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="n">config_name</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="p">{</span><span class="s1">&#39;slit_width&#39;</span><span class="p">,</span><span class="s1">&#39;slit_length&#39;</span><span class="p">,</span><span class="s1">&#39;PA&#39;</span><span class="p">}:</span>
+        <span class="n">slit</span> <span class="o">=</span> <span class="n">SkyRectangularAperture</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="n">config_name</span><span class="p">][</span><span class="s1">&#39;coordinates&#39;</span><span class="p">],</span>
+                                    <span class="n">w</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="n">config_name</span><span class="p">][</span><span class="s1">&#39;slit_width&#39;</span><span class="p">],</span>
+                                    <span class="n">h</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="n">config_name</span><span class="p">][</span><span class="s1">&#39;slit_length&#39;</span><span class="p">],</span>
+                                    <span class="n">theta</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="n">config_name</span><span class="p">][</span><span class="s1">&#39;PA&#39;</span><span class="p">]</span><span class="o">+</span><span class="mi">90</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">)</span>
+        <span class="n">slit</span><span class="o">.</span><span class="n">to_pixel</span><span class="p">(</span><span class="n">wcs</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+      <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="n">config_name</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="p">{</span><span class="s1">&#39;fiber_radius&#39;</span><span class="p">}:</span>
+        <span class="n">fiber</span> <span class="o">=</span> <span class="n">SkyCircularAperture</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="n">config_name</span><span class="p">][</span><span class="s1">&#39;coordinates&#39;</span><span class="p">],</span>
+                                    <span class="n">r</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="n">config_name</span><span class="p">][</span><span class="s1">&#39;fiber_radius&#39;</span><span class="p">])</span>
+        <span class="n">fiber</span><span class="o">.</span><span class="n">to_pixel</span><span class="p">(</span><span class="n">wcs</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+      <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;show_slit set to true, but this configuration does not have &#39;slit_width&#39;,&#39;slit_length&#39;, and &#39;PA&#39; set, which are needed for slit display, or &#39;fiber_radius&#39; set, for circular aperture.&#39;&#39;&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span>          </div>
+    
+<div class="viewcode-block" id="Target.add_custom_image"><a class="viewcode-back" href="../../autoapi/observing_suite/target/index.html#observing_suite.Target.add_custom_image">[docs]</a>  <span class="k">def</span> <span class="nf">add_custom_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">config_name</span><span class="p">,</span><span class="n">image_name</span><span class="p">,</span><span class="n">image</span><span class="p">,</span><span class="n">wcs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Add a custom image of your target. Allows for your image to be added to the observing plan along with, e.g., retrieved DSS imaging.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    config_name: str or list</span>
+<span class="sd">      configuration for which this image should apply. Can be a single configuration string, a list of configuration strings, or &#39;all&#39;. </span>
+<span class="sd">    image_name: str</span>
+<span class="sd">      a name for the image (for later plotting and access). </span>
+<span class="sd">    image: array_like</span>
+<span class="sd">      the array containing the image </span>
+<span class="sd">    wcs: astropy.WCS, optional (default None)</span>
+<span class="sd">      a wcs object defining the coordinates of the image. This must be provided for some functionality, like overplotting slits/apertures.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="n">config_name</span><span class="p">][</span><span class="s1">&#39;user_images&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="n">config_name</span><span class="p">][</span><span class="s1">&#39;user_images&#39;</span><span class="p">][</span><span class="n">image_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="n">config_name</span><span class="p">][</span><span class="s1">&#39;user_images&#39;</span><span class="p">][</span><span class="n">image_name</span><span class="p">][</span><span class="s1">&#39;image&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">image</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="n">config_name</span><span class="p">][</span><span class="s1">&#39;user_images&#39;</span><span class="p">][</span><span class="n">image_name</span><span class="p">][</span><span class="s1">&#39;wcs&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">wcs</span></div>
+                              
+<div class="viewcode-block" id="Target.show_custom_image"><a class="viewcode-back" href="../../autoapi/observing_suite/target/index.html#observing_suite.Target.show_custom_image">[docs]</a>  <span class="k">def</span> <span class="nf">show_custom_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">config_name</span><span class="p">,</span><span class="n">image_name</span><span class="p">,</span><span class="n">show_aperture</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="o">**</span><span class="n">implot_kwargs</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Display the custom image provided by user. If possible, show aperture (slit/fiber) over it.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="n">config_name</span><span class="p">][</span><span class="s1">&#39;user_images&#39;</span><span class="p">][</span><span class="n">image_name</span><span class="p">][</span><span class="s1">&#39;image&#39;</span><span class="p">]</span>
+    <span class="n">wcs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="n">config_name</span><span class="p">][</span><span class="s1">&#39;user_images&#39;</span><span class="p">][</span><span class="n">image_name</span><span class="p">][</span><span class="s1">&#39;wcs&#39;</span><span class="p">]</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">implot</span><span class="p">(</span><span class="n">image</span><span class="p">,</span><span class="n">wcs</span><span class="o">=</span><span class="n">wcs</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span><span class="o">**</span><span class="n">implot_kwargs</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">show_aperture</span><span class="p">:</span>
+      <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="n">config_name</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="p">{</span><span class="s1">&#39;slit_width&#39;</span><span class="p">,</span><span class="s1">&#39;slit_length&#39;</span><span class="p">,</span><span class="s1">&#39;PA&#39;</span><span class="p">}:</span>
+        <span class="n">slit</span> <span class="o">=</span> <span class="n">SkyRectangularAperture</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="n">config_name</span><span class="p">][</span><span class="s1">&#39;coordinates&#39;</span><span class="p">],</span>
+                                    <span class="n">w</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="n">config_name</span><span class="p">][</span><span class="s1">&#39;slit_width&#39;</span><span class="p">],</span>
+                                    <span class="n">h</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="n">config_name</span><span class="p">][</span><span class="s1">&#39;slit_length&#39;</span><span class="p">],</span>
+                                    <span class="n">theta</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="n">config_name</span><span class="p">][</span><span class="s1">&#39;PA&#39;</span><span class="p">])</span>
+        <span class="n">slit</span><span class="o">.</span><span class="n">to_pixel</span><span class="p">(</span><span class="n">wcs</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+      <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="n">config_name</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="p">{</span><span class="s1">&#39;fiber_radius&#39;</span><span class="p">}:</span>
+        <span class="n">fiber</span> <span class="o">=</span> <span class="n">SkyCircularAperture</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="n">config_name</span><span class="p">][</span><span class="s1">&#39;coordinates&#39;</span><span class="p">],</span>
+                                    <span class="n">r</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="n">config_name</span><span class="p">][</span><span class="s1">&#39;fiber_radius&#39;</span><span class="p">])</span>
+        <span class="n">fiber</span><span class="o">.</span><span class="n">to_pixel</span><span class="p">(</span><span class="n">wcs</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+      <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;show_slit set to true, but this configuration does not have &#39;slit_width&#39;,&#39;slit_length&#39;, and &#39;PA&#39; set, which are needed for slit display, or &#39;fiber_radius&#39; set, for circular aperture.&#39;&#39;&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span>          </div>
+  
+<div class="viewcode-block" id="Target.list_configurations"><a class="viewcode-back" href="../../autoapi/observing_suite/target/index.html#observing_suite.Target.list_configurations">[docs]</a>  <span class="k">def</span> <span class="nf">list_configurations</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">,</span><span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">)</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;coordinates&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">to_string</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;coordinates&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">SkyCoord</span><span class="p">)]</span>
+    <span class="k">if</span> <span class="s1">&#39;offset star&#39;</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+      <span class="n">df</span><span class="p">[</span><span class="s1">&#39;offset star&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">to_string</span><span class="p">()</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">SkyCoord</span><span class="p">)</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;offset star&#39;</span><span class="p">]]</span>
+    <span class="k">if</span> <span class="s1">&#39;user_images&#39;</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+      <span class="n">df</span><span class="p">[</span><span class="s1">&#39;user_images&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Y&#39;</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="nb">dict</span><span class="p">)</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;user_images&#39;</span><span class="p">]]</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;configurations&#39;</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">:</span> <span class="s1">&#39;---&#39;</span><span class="p">})</span>
+    <span class="k">return</span> <span class="n">df</span></div>
+  
+<div class="viewcode-block" id="Target.nudge_configuration"><a class="viewcode-back" href="../../autoapi/observing_suite/target/index.html#observing_suite.Target.nudge_configuration">[docs]</a>  <span class="k">def</span> <span class="nf">nudge_configuration</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">config_name</span><span class="p">,</span><span class="n">arcsec_east</span><span class="p">,</span><span class="n">arcsec_north</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Nudge the coordinates of a configuration east or north in arcsec</span>
+<span class="sd">    for better alignment.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    config_name: str</span>
+<span class="sd">      name of configuration to nudge</span>
+<span class="sd">    arcsec_east: float</span>
+<span class="sd">      amount to nudge east (west is negative) in arcsec</span>
+<span class="sd">    arcsec_north: float</span>
+<span class="sd">      amount to nudge north (south is negative) in arcsec</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">new_coordinate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="n">config_name</span><span class="p">][</span><span class="s1">&#39;coordinates&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">directional_offset_by</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">arcsec_north</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">arcsec</span><span class="p">)</span>
+    <span class="n">new_coordinate</span> <span class="o">=</span> <span class="n">new_coordinate</span><span class="o">.</span><span class="n">directional_offset_by</span><span class="p">(</span><span class="mi">90</span><span class="p">,</span><span class="n">arcsec_east</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">arcsec</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="n">config_name</span><span class="p">][</span><span class="s1">&#39;coordinates&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_coordinate</span></div>
+
+
+  <span class="nd">@property</span>
+  <span class="k">def</span> <span class="nf">configurations</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_configurations</span><span class="p">()</span></div>
+</pre></div>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Imad Pasha<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
