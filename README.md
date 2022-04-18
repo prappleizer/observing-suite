@@ -1,6 +1,8 @@
 # Observing-Suite
 
-A suite of tools for planning and carrying out astronomical observations, building on astropy and inspired by astroplan.
+A suite of tools for planning and carrying out astronomical observations, building on `astropy` and inspired by `astroplan`.
+
+A more fully-fledged documentation and API via `jupyter-book` can be found at [observing-suite.github.io](http://observing-suite.github.io).
 
 This package is built around three core classes: `Target()`, where one specifies astronomical targets and various configurations of desired target, `ObservingPlan()`, which ingests a target list, sets up the observatory and nights of observation, creates *beautiful* html observing plans (with airmass plots, finder charts, etc) and exports observatory-ready target lists for all unique configurations, and `ObservingLog()`, which spawns an easy to use, but highly flexible, html entry tool that saves an observing log during the night.
 
