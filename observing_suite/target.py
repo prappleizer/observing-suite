@@ -172,21 +172,21 @@ class Target():
     if configurations=='all':
       for i in self.configs.keys():
         os = coord.spherical_offsets_to(self.configs[i]['coordinates'])
-        os = [os[0].to(u.arcsec),os[1].to(u.arcsec)]
+        os = [os[0].to(u.arcsec).value,os[1].to(u.arcsec).value]
         add_str = f'''{os[0]:.3f}'' E, {os[1]:.3f}'' N'''
         self.configs[i]['offset star'] = coord
         self.configs[i]['offsets'] = add_str
     elif isinstance(configurations,str):
       os = coord.spherical_offsets_to(self.configs[configurations]['coordinates'])
-      os = [os[0].to(u.arcsec),os[1].to(u.arcsec)]
+      os = [os[0].to(u.arcsec).value,os[1].to(u.arcsec).value]
       add_str = f'''{os[0]:.3f}'' E, {os[1]:.3f}'' N'''
       self.configs[configurations]['offset star'] = coord
       self.configs[configurations]['offsets'] = add_str
     elif isinstance(configurations,list):
       for i in configurations:
         os = coord.spherical_offsets_to(self.configs[i]['coordinates'])
-        os = [os[0].to(u.arcsec),os[1].to(u.arcsec)]
-        add_str = f'''{os[0].value:.3f}'' E, {os[1].value:.3f}'' N'''
+        os = [os[0].to(u.arcsec).value,os[1].to(u.arcsec).value]
+        add_str = f'''{os[0]:.3f}'' E, {os[1]:.3f}'' N'''
         self.configs[i]['offset star'] = coord
         self.configs[i]['offsets'] = add_str
         

@@ -14,6 +14,7 @@ import pandas as pd
 from photutils.aperture import SkyRectangularAperture, SkyCircularAperture
 import os
 
+
 __all__ = ['ObservingPlan']
 
 class ObservingPlan():
@@ -150,6 +151,79 @@ class ObservingPlan():
       ax.tick_params(which='minor',direction='in',length=6,width=2,color='gray',top=True)
       return fig, ax 
   
+  def export_targetlist(self,include_extras=[],save_path='./',name='targetlist'):
+    '''
+    Export an observatory-compliant targetlist of all targets and configurations.
+    If only one configuration exists, the name column will be the target name.
+    Otherwise, it will be targetname_configname. It's worth noting that keeping
+    both of these short is advantageous for many facsum ingesting tools.
+    By default, only key info (name,ra,dec,equinox) are added. Extra info
+    from the configs can be added and will be appended as commented lines 
+    below each row.
+
+    Parameters
+    ----------
+    include_extras: list, default: []
+      extra keywords to include in comments. Code will try to add them if they
+      exist for a given configuration. (e.g., PAs or offsets)
+    save_path: str, default: './'
+      path to save targetlist to. default is current directory.
+    name: str, default: 'targetlist'
+      name of the file. 
+
+    Returns
+    -------
+    None
+      but saves the relevant targetlist file.
+    
+    Notes
+    -----
+    CURRENT_SUPPORTED_OBS: Palomar Observatory
+    '''
+    if not save_path.endswith('/'):
+      save_path = save_path + '/' + name +'.csv'
+    else:
+      save_path = save_path + name +'.csv'
+    if isinstance(self.observatory,str):
+      if self.observatory.upper() == 'PALOMAR':
+        write_str = ''
+        for target in self.target_list:
+          df = target.configurations
+          if len(df) == 1:
+            config = list(target.configs.keys())[0]
+            ra = target.configs[config]['coordinates'].ra.value
+            dec = target.configs[config]['coordinates'].dec.value
+            write_str += f'{target.name},{ra},{dec},J2000 \n'
+            mini_str = '! ^^ '
+            for j in include_extras:
+              try:
+                mini_str += f'{j}: {target.configs[config][j]},'
+              except:
+                continue
+            mini_str += '\n'
+            write_str += mini_str 
+            
+          elif len(df)>1:
+            for config in list(target.configs.keys()):
+              write_name = target.name + '_' + config 
+              ra = target.configs[config]['coordinates'].ra.value
+              dec = target.configs[config]['coordinates'].dec.value
+              write_str += f'{write_name},{ra},{dec},J2000 \n'
+              mini_str = '! ^^ '
+              for j in include_extras:
+                try:
+                  mini_str += f'{j}: {target.configs[config][j]},'
+                except:
+                  continue
+              mini_str += '\n'
+              write_str += mini_str 
+          else:
+            print('?????')
+        with open(save_path,'w') as f:
+          f.write(write_str)
+            
+
+
   def html_summary(self,date,save_dir,overwrite=True,view_range=12):
     '''
     Produce a 'beautiful' html output with the observing plan. 
@@ -286,3 +360,4 @@ class ObservingPlan():
     final = top + close
     with open(os.path.join(save_dir,f'ObservingPlan_{date}','html_report.html'), 'w') as f:
       f.write(final)
+    
