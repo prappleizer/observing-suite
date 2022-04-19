@@ -18,7 +18,11 @@ import os
 __all__ = ['ObservingPlan']
 
 class ObservingPlan():
-  def __init__(self,target_list,observatory,obsdates,utcoffset):
+  def __init__(self,
+            target_list: list,
+            observatory: str,
+            obsdates: list,
+            utcoffset: float):
     '''
     Initialize ObservingPlan object. 
     
@@ -61,7 +65,14 @@ class ObservingPlan():
       self.total_configs += len(i.configurations)
 
   
-  def plot_visibility(self,date,target='all',view_range=12,plot_current_time=False,figsize=(30,12),alt_min=10,alt_max=90):
+  def plot_visibility(self,
+                    date: str,
+                    target: str = 'all',
+                    view_range: float = 12,
+                    plot_current_time: bool = False,
+                    figsize: tuple = (30,12),
+                    alt_min: float = 10,
+                    alt_max: float = 90):
       '''
       Produce a plot of altitude and airmass for targets on a given night of observing. 
 
@@ -151,7 +162,11 @@ class ObservingPlan():
       ax.tick_params(which='minor',direction='in',length=6,width=2,color='gray',top=True)
       return fig, ax 
   
-  def export_targetlist(self,include_extras=[],save_path='./',name='targetlist',include_offset_stars=True):
+  def export_targetlist(self,
+                      include_extras: list =[],
+                      include_offset_stars: bool = True,
+                      save_path: str = './',
+                      name: str = 'targetlist'):
     '''
     Export an observatory-compliant targetlist of all targets and configurations.
     If only one configuration exists, the name column will be the target name.
@@ -166,10 +181,13 @@ class ObservingPlan():
     include_extras: list, default: []
       extra keywords to include in comments. Code will try to add them if they
       exist for a given configuration. (e.g., PAs or offsets)
+    include_offset_stars: bool, default: True
+      whether to include offset stars as entries in the targetlist. Name format is <target>_<config>_os.
     save_path: str, default: './'
       path to save targetlist to. default is current directory.
     name: str, default: 'targetlist'
       name of the file. 
+
 
     Returns
     -------
@@ -237,7 +255,11 @@ class ObservingPlan():
             
 
 
-  def html_summary(self,date,save_dir,overwrite=True,view_range=12):
+  def html_summary(self,
+                date: str,
+                save_dir: str,
+                overwrite: bool = True,
+                view_range: float = 12):
     '''
     Produce a 'beautiful' html output with the observing plan. 
     
