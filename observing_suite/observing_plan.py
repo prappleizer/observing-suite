@@ -395,4 +395,39 @@ class ObservingPlan():
     final = top + close
     with open(os.path.join(save_dir,f'ObservingPlan_{date}','html_report.html'), 'w') as f:
       f.write(final)
+    css_string = '''
+
+body{
+background: #ffffff;
+}
+
+.myheader {
+  padding: 80px;
+  text-align: center;
+  background: #0a2648;
+  color: white;
+  font-size: 30px;
+}
+
+.box {
+  padding: 60px;
+  text-align: center;
+}
+
+.visibility {
+  padding-top: 150 px; 
+  text-align: center;
+}
+
+
+.myfooter {
+  padding: 10px;
+  text-align: center;
+  background: #0a2648;
+  color: white;
+  font-size: 15px;
+}
+    '''
+    with open(os.path.join(save_dir,f'ObservingPlan_{date}','style.css'), 'w') as f:
+      f.write(css_string)
     
