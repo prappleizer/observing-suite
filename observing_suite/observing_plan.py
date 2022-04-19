@@ -151,7 +151,7 @@ class ObservingPlan():
       ax.tick_params(which='minor',direction='in',length=6,width=2,color='gray',top=True)
       return fig, ax 
   
-  def export_targetlist(self,include_extras=[],save_path='./',name='targetlist'):
+  def export_targetlist(self,include_extras=[],save_path='./',name='targetlist',include_offset_stars=True):
     '''
     Export an observatory-compliant targetlist of all targets and configurations.
     If only one configuration exists, the name column will be the target name.
@@ -199,10 +199,16 @@ class ObservingPlan():
               try:
                 mini_str += f'{j}: {target.configs[config][j]},'
               except:
-                continue
+                continue 
             mini_str += '\n'
-            write_str += mini_str 
-            
+            if len(include_extras)>0:
+              write_str += mini_str 
+            if 'offset star' in list(target.configs[config].keys()):
+              if include_offset_stars:
+                write_name = target.name + '_os'
+                ra = target.configs[config]['offset star'].ra.value
+                dec = target.configs[config]['offset star'].dec.value
+                write_str += f'{write_name},{ra},{dec},J2000 \n'
           elif len(df)>1:
             for config in list(target.configs.keys()):
               write_name = target.name + '_' + config 
@@ -216,7 +222,14 @@ class ObservingPlan():
                 except:
                   continue
               mini_str += '\n'
-              write_str += mini_str 
+              if len(include_extras)>0:
+                write_str += mini_str
+              if 'offset star' in list(target.configs[config].keys()):
+                if include_offset_stars:
+                  write_name = target.name + '_' + config + '_os'
+                  ra = target.configs[config]['offset star'].ra.value
+                  dec = target.configs[config]['offset star'].dec.value
+                  write_str = write_str + f'{write_name},{ra},{dec},J2000 \n' 
           else:
             print('?????')
         with open(save_path,'w') as f:
