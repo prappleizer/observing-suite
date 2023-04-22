@@ -10,7 +10,7 @@ import pandas as pd
 from photutils.aperture import SkyRectangularAperture, SkyCircularAperture
 from .imaging import implot 
 from astroquery.skyview import SkyView
-
+import legacystamps
 __all__ = ['Target']
 
 
@@ -217,21 +217,27 @@ class Target():
     fig, ax: matplotlib figure and axes objects
       the fig and ax on which the dss image and possible aperture was plotted.
     '''
-    sv = SkyView()
+    
     if hasattr(self,'survey_name'):
       survey=self.survey_name
     else:
       survey='SDSSdr7g'
-    paths = sv.get_images(position=self.configs[config_name]['coordinates'],
-                      survey=[survey],
-                      coordinates='J2000',
-                      width=size,
-                      height=size,
-                      grid=True,
-                      gridlabels=True,
-                      pixels=str(pixels))
-    image = paths[0][0].data
-    wcs = WCS(paths[0][0].header)
+    if survey != 'legacy':
+      sv = SkyView()
+      paths = sv.get_images(position=self.configs[config_name]['coordinates'],
+                        survey=[survey],
+                        coordinates='J2000',
+                        width=size,
+                        height=size,
+                        grid=True,
+                        gridlabels=True,
+                        pixels=str(pixels))
+      image = paths[0][0].data
+      wcs = WCS(paths[0][0].header)
+    else:
+      ra = self.configs[config_name]['coordinates'][0]
+      dec = self.configs[config_name]['coordinates'][1]
+      #fit = legacystamps.download(ra=ra, dec=dec, mode='fits', bands='grz', size=cutsize)
     fig, ax = implot(image,wcs=wcs,cmap='gray',**implot_kwargs)
     if show_aperture:
       if self.configs[config_name].keys() >= {'slit_width','slit_length','PA'}:

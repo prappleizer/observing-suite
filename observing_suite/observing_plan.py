@@ -72,7 +72,8 @@ class ObservingPlan():
                     plot_current_time: bool = False,
                     figsize: tuple = (30,12),
                     alt_min: float = 10,
-                    alt_max: float = 90):
+                    alt_max: float = 90,
+                    legend=True):
       '''
       Produce a plot of altitude and airmass for targets on a given night of observing. 
 
@@ -109,8 +110,8 @@ class ObservingPlan():
         if i.coordinates is not None:
           ax.plot(obs_times.plot_date,i.coordinates.transform_to(frame).alt,label=name,lw=4)
         else:
-          for j in configs.keys():
-            if not isinstance(configs[j]['coordinates'],SkyCoord):
+          for j in i.configs.keys():
+            if not isinstance(i.configs[j]['coordinates'],SkyCoord):
               continue
             else:
               coord = i.configs[j]['coordinates']
@@ -119,14 +120,21 @@ class ObservingPlan():
 
       moon = get_moon(obs_times).transform_to(frame)
       sun = get_sun(obs_times).transform_to(frame)
-      ax.plot(obs_times.plot_date,moon.alt,color='lightgray',ls='--',lw=3,label='Moon')
 
-      ax.fill_between(obs_times.plot_date, 0*u.deg, 90*u.deg,
-                   sun.alt < -0*u.deg, color='0.9', zorder=0)
-      ax.fill_between(obs_times.plot_date, 0*u.deg, 90*u.deg,
-                       sun.alt < -12*u.deg, color='0.7', zorder=0)
-      ax.fill_between(obs_times.plot_date, 0*u.deg, 90*u.deg,
-                       sun.alt < -18*u.deg, color='0.2', zorder=0)
+      ax.plot(obs_times.plot_date,moon.alt,color='lightgray',ls='--',lw=3,label='Moon')
+      mask1 = sun.alt.to(u.deg) < -0*u.deg
+      ax.fill_between(obs_times.plot_date[mask1],0,90,color='0.9',zorder=0)
+      mask2 = sun.alt.to(u.deg) < -12*u.deg
+      ax.fill_between(obs_times.plot_date[mask2],0,90,color='0.7',zorder=0)
+      mask3 = sun.alt.to(u.deg) < -18*u.deg
+      ax.fill_between(obs_times.plot_date[mask3],0,90,color='0.2',zorder=0)
+
+      # ax.fill_between(obs_times.plot_date, 0*u.deg, 90*u.deg,
+      #              sun.alt.to(u.deg) > -0*u.deg, color='0.9', zorder=0)
+      # ax.fill_between(obs_times.plot_date, 0*u.deg, 90*u.deg,
+      #                  sun.alt.to(u.deg) > -12*u.deg, color='0.7', zorder=0)
+      # ax.fill_between(obs_times.plot_date, 0*u.deg, 90*u.deg,
+      #                  sun.alt.to(u.deg) > -18*u.deg, color='0.2', zorder=0)
 
 
 
@@ -136,7 +144,8 @@ class ObservingPlan():
         ax.axvline(now.plot_date,color='r',lw=3)
 
       ax.set_ylim(alt_min,alt_max)
-      ax.legend(prop={'size': figsize[0]})
+      if legend:
+        ax.legend(prop={'size': figsize[0]})
       ax.set_xlim([obs_times[0].plot_date, obs_times[-1].plot_date])
       loc = HourLocator(interval=1)
       date_formatter = dates.DateFormatter("%H")
