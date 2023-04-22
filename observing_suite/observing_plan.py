@@ -376,7 +376,7 @@ class ObservingPlan():
             plt.tight_layout()
             fig.savefig(os.path.join(save_dir,f'ObservingPlan_{date}','img',f'{target.name}_config_{key}_{date}.jpg'))
           else:
-            fig,ax=target.retrieve_finder_chart(key,size=size)
+            fig,ax=target.retrieve_finder_chart(key,size=size,scale=1.0)
             plt.tight_layout()
             fig.savefig(os.path.join(save_dir,f'ObservingPlan_{date}','img',f'{target.name}_config_{key}_{date}.jpg'))
         img_path = os.path.join('img',f'{target.name}_config_{key}_{date}.jpg')
