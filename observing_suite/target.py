@@ -234,10 +234,12 @@ class Target():
                         pixels=str(pixels))
       image = paths[0][0].data
       wcs = WCS(paths[0][0].header)
-    else:
-      ra = self.configs[config_name]['coordinates'][0]
-      dec = self.configs[config_name]['coordinates'][1]
-      #fit = legacystamps.download(ra=ra, dec=dec, mode='fits', bands='grz', size=cutsize)
+    elif survey == 'legacy':
+      ra = self.configs[config_name]['coordinates'].ra.value
+      dec = self.configs[config_name]['coordinates'].dec.value
+      with fits.open(f"https://www.legacysurvey.org/viewer/cutout=fits?&ra={ra}&dec={dec}&layer=ls-dr9&zoom=14") as hdu:
+        image = hdu[0].data[0]
+        wcs = WCS(hdu[0].header)[0]
     fig, ax = implot(image,wcs=wcs,cmap='gray',**implot_kwargs)
     if show_aperture:
       if self.configs[config_name].keys() >= {'slit_width','slit_length','PA'}:
