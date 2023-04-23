@@ -327,11 +327,8 @@ class ObservingPlan():
       # Let's make the coordinates row specific links.
       df = target.configurations
       df['coordinates'] = [f"<a href='https://www.legacysurvey.org/viewer?ra={i.split(' ')[0]}&dec={i.split(' ')[1]}&layer=ls-dr9&zoom=12' target='_blank'>{i}</a>" for i in df.coordinates]
-      
+      text = "div class='container'><hr><hr>"
       text = f'''
-             <div class='container'>
-             <hr>
-             <hr>
              <div align='center'>
              <h3 class='display-4'>Target: {target.name}</h3>
              
