@@ -219,7 +219,7 @@ class ObservingPlan():
           df = target.configurations
           if len(df) == 1:
             config = list(target.configs.keys())[0]
-            radec = target.configs[config]['coordinates'].to_string('hmsdms')
+            radec = target.configs[config]['coordinates'].to_string(style='hmsdms',sep=':')
             #ra = target.configs[config]['coordinates'].ra.value
             #dec = target.configs[config]['coordinates'].dec.value
             ra = radec.split(' ')[0].replace(':',' ')
@@ -237,7 +237,7 @@ class ObservingPlan():
             if 'offset star' in list(target.configs[config].keys()):
               if include_offset_stars:
                 write_name = target.name + '_os'
-                radec = target.configs[config]['offset star'].to_string('hmsdms')
+                radec = target.configs[config]['offset star'].to_string(style='hmsdms',sep=':')
                 ra = radec.split(' ')[0].replace(':',' ')
                 dec = radec.split(' ')[1].replace(':',' ')
                 #ra = target.configs[config]['offset star'].ra.value
@@ -246,7 +246,7 @@ class ObservingPlan():
           elif len(df)>1:
             for config in list(target.configs.keys()):
               write_name = target.name + '_' + config 
-              radec = target.configs[config]['coordinates'].to_string('hmsdms')
+              radec = target.configs[config]['coordinates'].to_string(style='hmsdms',sep=':')
               #ra = target.configs[config]['coordinates'].ra.value
               #dec = target.configs[config]['coordinates'].dec.value
               ra = radec.split(' ')[0].replace(':',' ')
@@ -264,7 +264,7 @@ class ObservingPlan():
               if 'offset star' in list(target.configs[config].keys()):
                 if include_offset_stars:
                   write_name = target.name + '_' + config + '_os'
-                  radec = target.configs[config]['offset star'].to_string('hmsdms')
+                  radec = target.configs[config]['offset star'].to_string(style='hmsdms',sep=':')
                   #ra = target.configs[config]['offset star'].ra.value
                   #dec = target.configs[config]['offset star'].dec.value
                   ra = radec.split(' ')[0].replace(':',' ')
