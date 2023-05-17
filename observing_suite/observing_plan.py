@@ -15,6 +15,7 @@ from photutils.aperture import SkyRectangularAperture, SkyCircularAperture
 import os
 
 
+
 __all__ = ['ObservingPlan']
 
 class ObservingPlan():
@@ -218,8 +219,11 @@ class ObservingPlan():
           df = target.configurations
           if len(df) == 1:
             config = list(target.configs.keys())[0]
-            ra = target.configs[config]['coordinates'].ra.value
-            dec = target.configs[config]['coordinates'].dec.value
+            radec = target.configs[config]['coordinates'].to_string('hmsdms')
+            #ra = target.configs[config]['coordinates'].ra.value
+            #dec = target.configs[config]['coordinates'].dec.value
+            ra = radec.split(' ')[0].replace(':',' ')
+            dec = radec.split(' ')[1].replace(':',' ')
             write_str += f'{target.name},{ra},{dec},J2000 \n'
             mini_str = '! ^^ '
             for j in include_extras:
@@ -233,14 +237,20 @@ class ObservingPlan():
             if 'offset star' in list(target.configs[config].keys()):
               if include_offset_stars:
                 write_name = target.name + '_os'
-                ra = target.configs[config]['offset star'].ra.value
-                dec = target.configs[config]['offset star'].dec.value
+                radec = target.configs[config]['offset star'].to_string('hmsdms')
+                ra = radec.split(' ')[0].replace(':',' ')
+                dec = radec.split(' ')[1].replace(':',' ')
+                #ra = target.configs[config]['offset star'].ra.value
+                #dec = target.configs[config]['offset star'].dec.value
                 write_str += f'{write_name},{ra},{dec},J2000 \n'
           elif len(df)>1:
             for config in list(target.configs.keys()):
               write_name = target.name + '_' + config 
-              ra = target.configs[config]['coordinates'].ra.value
-              dec = target.configs[config]['coordinates'].dec.value
+              radec = target.configs[config]['coordinates'].to_string('hmsdms')
+              #ra = target.configs[config]['coordinates'].ra.value
+              #dec = target.configs[config]['coordinates'].dec.value
+              ra = radec.split(' ')[0].replace(':',' ')
+              dec = radec.split(' ')[1].replace(':',' ')
               write_str += f'{write_name},{ra},{dec},J2000 \n'
               mini_str = '! ^^ '
               for j in include_extras:
@@ -254,8 +264,11 @@ class ObservingPlan():
               if 'offset star' in list(target.configs[config].keys()):
                 if include_offset_stars:
                   write_name = target.name + '_' + config + '_os'
-                  ra = target.configs[config]['offset star'].ra.value
-                  dec = target.configs[config]['offset star'].dec.value
+                  radec = target.configs[config]['offset star'].to_string('hmsdms')
+                  #ra = target.configs[config]['offset star'].ra.value
+                  #dec = target.configs[config]['offset star'].dec.value
+                  ra = radec.split(' ')[0].replace(':',' ')
+                  dec = radec.split(' ')[1].replace(':',' ')
                   write_str = write_str + f'{write_name},{ra},{dec},J2000 \n' 
           else:
             print('?????')
@@ -323,12 +336,15 @@ class ObservingPlan():
             
             
     '''
+    text0 = "<div class='container'>"
     for target in self.target_list:     
       # Let's make the coordinates row specific links.
       df = target.configurations
       df['coordinates'] = [f"<a href='https://www.legacysurvey.org/viewer?ra={i.split(' ')[0]}&dec={i.split(' ')[1]}&layer=ls-dr9&zoom=12' target='_blank'>{i}</a>" for i in df.coordinates]
-      text = "div class='container'><hr><hr>"
+      
       text = f'''
+              <hr>
+              <hr>
              <div align='center'>
              <h3 class='display-4'>Target: {target.name}</h3>
              
@@ -387,8 +403,8 @@ class ObservingPlan():
         '''
       
         text = text+ims 
-      text = text+'</div>'
-      top = top + text
+      text = text+'</div></div>'
+      top = top+text0+text
     close = f'''
     </div>
     </div>
