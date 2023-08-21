@@ -175,6 +175,7 @@ class ObservingPlan():
   def export_targetlist(self,
                       include_extras: list =[],
                       include_offset_stars: bool = True,
+                      include_background_fields: bool = True,
                       save_path: str = './',
                       name: str = 'targetlist'):
     '''
@@ -193,6 +194,8 @@ class ObservingPlan():
       exist for a given configuration. (e.g., PAs or offsets)
     include_offset_stars: bool, default: True
       whether to include offset stars as entries in the targetlist. Name format is <target>_<config>_os.
+    include_background_fields: bool, default: True
+      whether to include offsets to background fields as entries in the targetlist. Name format is <target>_<config>_bg.
     save_path: str, default: './'
       path to save targetlist to. default is current directory.
     name: str, default: 'targetlist'
@@ -243,6 +246,13 @@ class ObservingPlan():
                 #ra = target.configs[config]['offset star'].ra.value
                 #dec = target.configs[config]['offset star'].dec.value
                 write_str += f'{write_name},{ra},{dec},J2000 \n'
+            if 'background field' in list(target.configs[config].keys()):
+              if include_background_fields:
+                write_name = target.name + '_bg'
+                radec = target.configs[config]['background field'].to_string(style='hmsdms',sep=':')
+                ra = radec.split(' ')[0].replace(':',' ')
+                dec = radec.split(' ')[1].replace(':',' ')
+                write_str += f'{write_name},{ra},{dec},J2000 \n'
           elif len(df)>1:
             for config in list(target.configs.keys()):
               write_name = target.name + '_' + config 
@@ -267,6 +277,13 @@ class ObservingPlan():
                   radec = target.configs[config]['offset star'].to_string(style='hmsdms',sep=':')
                   #ra = target.configs[config]['offset star'].ra.value
                   #dec = target.configs[config]['offset star'].dec.value
+                  ra = radec.split(' ')[0].replace(':',' ')
+                  dec = radec.split(' ')[1].replace(':',' ')
+                  write_str = write_str + f'{write_name},{ra},{dec},J2000 \n' 
+              if 'background field' in list(target.configs[config].keys()):
+                if include_background_fields:
+                  write_name = target.name + '_' + config + '_bg'
+                  radec = target.configs[config]['background field'].to_string(style='hmsdms',sep=':')
                   ra = radec.split(' ')[0].replace(':',' ')
                   dec = radec.split(' ')[1].replace(':',' ')
                   write_str = write_str + f'{write_name},{ra},{dec},J2000 \n' 
