@@ -190,6 +190,60 @@ class Target():
         self.configs[i]['offset star'] = coord
         self.configs[i]['offsets'] = add_str
         
+  def add_background_field(self,coordinate,coord_units=None,configurations='all'):
+    '''
+    Add a background field to the configuration. Background fields are used for sky subtraction during nod and shuffle observations (for example with PCWI).
+    If a background field is provided, the offsets between the background field and the configurations coordinates (in arcsec east and north) is automatically calculated and added to the configuration.
+    These offsets are calculated assuming you are moving from the target to the background field (as you would during nod and shuffle). 
+    
+    Parameters
+    ----------
+    coordinate: str or SkyCoord
+      coordinates of the background field. Either SkyCoord object or string. If string provided, must also provide coord_units for creation of SkyCoord object.
+    coord_units: tuple or str, optional, default None
+      if coordinates provided as a string, units acceptable by SkyCoord (e.g., (u.hourangle, u.deg) or 'deg') must be provided here. 
+    configurations: str or list, optional, default 'all'
+      Which configurations to compute offsets for this background field. Default is 'all', one can pass individual configuration names as strings, or a list of configuration names (as strings).
+      
+    Returns
+    -------
+    None
+    
+    Sets
+    ----
+    Sets the 'background field' key for the chosen configuration(s) as the star coordinates and the 'background offsets' key to the offsets, visible via view_configurations().
+    '''
+    if isinstance(coordinate,str):
+      if coord_units is not None:
+        coord = SkyCoord(coordinate,unit=coord_units)
+      else:
+        raise AssertionError('If string coordinate provided, units must be provided for SkyCoord creation')
+    elif isinstance(coordinate,SkyCoord):
+      coord = coordinate
+    if configurations=='all':
+      for i in self.configs.keys():
+        target_coord = self.configs[i]['coordinates']
+        os = target_coord.spherical_offsets_to(coord)
+        os = [os[0].to(u.arcsec).value,os[1].to(u.arcsec).value]
+        add_str = f'''{os[0]:.3f}'' E, {os[1]:.3f}'' N'''
+        self.configs[i]['background field'] = coord
+        self.configs[i]['background offsets'] = add_str
+    elif isinstance(configurations,str):
+      target_coord = self.configs[configurations]['coordinates']
+      os = target_coord.spherical_offsets_to(coord)
+      os = [os[0].to(u.arcsec).value,os[1].to(u.arcsec).value]
+      add_str = f'''{os[0]:.3f}'' E, {os[1]:.3f}'' N'''
+      self.configs[configurations]['background field'] = coord
+      self.configs[configurations]['background offsets'] = add_str
+    elif isinstance(configurations,list):
+      for i in configurations:
+        target_coord = self.configs[i]['coordinates']
+        os = target_coord.spherical_offsets_to(coord)
+        os = [os[0].to(u.arcsec).value,os[1].to(u.arcsec).value]
+        add_str = f'''{os[0]:.3f}'' E, {os[1]:.3f}'' N'''
+        self.configs[i]['background field'] = coord
+        self.configs[i]['background offsets'] = add_str
+
   def set_survey(self,survey_name):
     self.survey_name = survey_name
   
@@ -303,6 +357,8 @@ class Target():
     df['coordinates'] = [i.to_string() for i in df['coordinates'] if isinstance(i,SkyCoord)]
     if 'offset star' in df.columns:
       df['offset star'] = [i.to_string() if isinstance(i,SkyCoord) else np.nan for i in df['offset star']]
+    if 'background field' in df.columns:
+      df['background field'] = [i.to_string() if isinstance(i,SkyCoord) else np.nan for i in df['background field']] 
     if 'user_images' in df.columns:
       df['user_images'] = ['Y' if isinstance(i,dict) else np.nan for i in df['user_images']]
     df.index.name = 'configurations'
